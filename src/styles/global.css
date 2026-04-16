@@ -5,7 +5,7 @@
   --font-sans: "Georgia", serif;
   --font-display: InterDisplay, monospace;
   --font-mono: "IBM Plex Mono", monospace;
- --color-base-50: #000000;
+ --color-base-50: #ffffff;
 --color-base-100: #eaeaea;
 --color-base-200: #d6d6d6;
 --color-base-300: #b5b5b5;
@@ -21,11 +21,7 @@
 :root {
   font-family: Georgia, serif;
 }
-@supports (font-variation-settings: normal) {
-  /* Use variable font if supported */
-  :root {
-    font-family: InterVariable, sans-serif;
-  }
+
 }
 :root {
   --astro-code-color-text: #000000;
