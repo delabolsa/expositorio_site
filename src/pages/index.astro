@@ -22,18 +22,7 @@ const sortedPosts = allPosts.sort(
      Observaciones sobre artistas contemporáneos emergentes*
     </h1>
 
-    <div class="flex flex-wrap gap-3 mt-8">
-      {
-        tags.map((tag) => (
-          <a
-            class="hover:text-blue-500 text-xs font-medium text-base-950"
-            href={`/tags/${tag}`}
-          >
-            {tag}
-          </a>
-        ))
-      }
-    </div>
+   
 
 <!-- 🔥 HERO / BANNER CENTRAL -->
     <section class="w-full my-24 py-24 flex items-center justify-center text-center">
@@ -48,7 +37,18 @@ const sortedPosts = allPosts.sort(
         </p>
       </div>
     </section>
-
+ <div class="flex flex-wrap gap-3 mt-8">
+      {
+        tags.map((tag) => (
+          <a
+            class="hover:text-blue-500 text-xs font-medium text-base-950"
+            href={`/tags/${tag}`}
+          >
+            {tag}
+          </a>
+        ))
+      }
+    </div>
     <div class="grid grid-cols-1 mt-4 gap-8 gap-y-24 sm:grid-cols-2">
       {
         sortedPosts.map((post) => (
