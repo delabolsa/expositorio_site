@@ -37,6 +37,6 @@
   --astro-code-token-link: #ffffff;
 }
 html, body {
-  background: #0b0b0b;
-  color: #f5f5f5;
+  background: #0b0b0b !important;
+  color: #f5f5f5 !important;
 }
