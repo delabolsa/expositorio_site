@@ -35,6 +35,20 @@ const sortedPosts = allPosts.sort(
       }
     </div>
 
+<!-- 🔥 HERO / BANNER CENTRAL -->
+    <section class="w-full my-24 py-24 flex items-center justify-center text-center">
+      <div class="max-w-3xl">
+
+        <h2 class="text-3xl md:text-5xl font-medium">
+          Espacio de exploración visual contemporánea
+        </h2>
+
+        <p class="mt-6 text-base-400 text-lg">
+          Archivo digital de artistas, procesos y exposiciones. Un espacio en construcción constante.
+        </p>
+      </div>
+    </section>
+
     <div class="grid grid-cols-1 mt-4 gap-8 gap-y-24 sm:grid-cols-2">
       {
         sortedPosts.map((post) => (
@@ -51,8 +65,5 @@ const sortedPosts = allPosts.sort(
         ))
       }
     </div>
-
-  </section>
-
   <Cta />
 </BaseLayout>
