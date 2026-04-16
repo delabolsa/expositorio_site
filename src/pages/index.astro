@@ -3,9 +3,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import BlogEntries from "@/components/entries/BlogEntry.astro";
 import Cta from "@/components/global/Cta.astro";
 import { getCollection } from "astro:content";
+
 const allPosts = await getCollection("posts");
+
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-// Sort posts by date in descending order (newest first)
+
+// Sort posts by date (newest first)
 const sortedPosts = allPosts.sort(
   (a, b) =>
     new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
@@ -13,41 +16,43 @@ const sortedPosts = allPosts.sort(
 ---
 
 <BaseLayout>
-  <BaseLayout>
   <section class="py-24 bg-base-950 text-base-50">
-      >
-        A simple blog built with Astro and Tailwind CSS
-      </h1>
-      <div class="flex flex-wrap gap-3 mt-8">
-        {
-          tags.map((tag) => (
-            <a
-              class=" hover:text-blue-500 text-xs font-medium text-base-600"
-              href={`/tags/${tag}`}
-            >
-              {tag}
-            </a>
-          ))
-        }
-      </div>
-      <div class="grid grid-cols-1 mt-4 gap-8 gap-y-24 sm:grid-cols-2">
-        {
-          sortedPosts.map((post) => (
-            <BlogEntries
-              url={"/posts/" + post.id}
-              alt={post.data.title}
-              tags={post.data.tags}
-              title={post.data.title}
-              author={post.data.author}
-              image={post.data.image.url}
-              description={post.data.description}
-              pubDate={post.data.pubDate.toString().slice(0, 10)}
-            />
-          ))
-        }
-      </div>
+
+    <h1 class="text-4xl text-balance font-medium font-display max-w-xl">
+      A simple blog built with Astro and Tailwind CSS
+    </h1>
+
+    <div class="flex flex-wrap gap-3 mt-8">
+      {
+        tags.map((tag) => (
+          <a
+            class="hover:text-blue-500 text-xs font-medium text-base-400"
+            href={`/tags/${tag}`}
+          >
+            {tag}
+          </a>
+        ))
+      }
     </div>
+
+    <div class="grid grid-cols-1 mt-4 gap-8 gap-y-24 sm:grid-cols-2">
+      {
+        sortedPosts.map((post) => (
+          <BlogEntries
+            url={"/posts/" + post.id}
+            alt={post.data.title}
+            tags={post.data.tags}
+            title={post.data.title}
+            author={post.data.author}
+            image={post.data.image.url}
+            description={post.data.description}
+            pubDate={post.data.pubDate.toString().slice(0, 10)}
+          />
+        ))
+      }
+    </div>
+
   </section>
+
   <Cta />
-  </div>
 </BaseLayout>
