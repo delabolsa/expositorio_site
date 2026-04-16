@@ -29,7 +29,7 @@
 }
 :root {
   --astro-code-color-text: #000000;
-  --astro-code-background: #ffffff;
+  --astro-code-background: #0b0b0b;
   --astro-code-token-constant: #00000080;
   --astro-code-token-string: #00000050;
   --astro-code-token-comment: #00000060;
