@@ -36,3 +36,6 @@
   --astro-code-token-punctuation: #ffffff;
   --astro-code-token-link: #ffffff;
 }
+html, body {
+  background: #0b0b0b !important;
+}
