@@ -7,10 +7,13 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "npm run build && wrangler dev",
+    "astro": "astro",
+    "generate-types": "wrangler types",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^13.1.10",
     "@astrojs/mdx": "^5.0.0-beta.12",
     "@astrojs/rss": "^4.0.15-beta.4",
     "@astrojs/sitemap": "^3.6.1-beta.3",
@@ -21,6 +24,7 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.2.1",
-    "tailwindcss": "^4.2.1"
+    "tailwindcss": "^4.2.1",
+    "wrangler": "^4.83.0"
   }
 }
