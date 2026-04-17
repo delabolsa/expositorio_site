@@ -3,9 +3,9 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: "Georgia", serif;
-  --font-display: InterDisplay, monospace;
-  --font-mono: "IBM Plex Mono", monospace;
+  --font-sans: "inter", sans serif;
+  --font-display: inter, sans serif;
+  --font-mono: "inter", sans serif;
 
   --color-base-50: #ffffff;
   --color-base-100: #eaeaea;
@@ -22,7 +22,7 @@
 
 /* CSS GLOBAL */
 :root {
-  font-family: Georgia, serif;
+  font-family: inter, sans serif;
 }
 
 :root {
