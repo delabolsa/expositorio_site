@@ -12,7 +12,9 @@ export async function getStaticPaths() {
 
 const { artista } = Astro.props;
 const allObras = await getCollection("obras");
-const obrasArtista = allObras.filter(obra => obra.data.artista === artista.slug);
+const obrasArtista = allObras
+  .filter(obra => obra.data.artista === artista.slug)
+  .sort((a, b) => (b.data.ano || 0) - (a.data.ano || 0));
 ---
 
 <BaseLayout title={`${artista.data.nombre} - Expositorio Voyeur`}>
