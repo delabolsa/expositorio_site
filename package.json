@@ -3,7 +3,14 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
-  "scripts": "prebuild": "node scripts/generate-artistas.js"
+{
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "prebuild": "node scripts/generate-artistas.js"
+  }
+}
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
