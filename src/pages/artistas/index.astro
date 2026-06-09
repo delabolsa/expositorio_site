@@ -1,14 +1,12 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import artistasData from "../../data/artistas.json";
 
-const allArtistas = await getCollection("artistas");
-// Ordenar por fechaAgregado descendente (más reciente primero)
-const artistasOrdenados = allArtistas.sort((a, b) => 
-  (b.data.fechaAgregado?.getTime() || 0) - (a.data.fechaAgregado?.getTime() || 0)
+const allArtistas = artistasData;
+const artistasOrdenados = allArtistas.sort((a,b) => 
+  new Date(b.data.fechaAgregado) - new Date(a.data.fechaAgregado)
 );
 
-// Paginación (opcional, muestra 12 por página)
 const page = Number(Astro.url.searchParams.get("page")) || 1;
 const pageSize = 12;
 const totalArtistas = artistasOrdenados.length;
