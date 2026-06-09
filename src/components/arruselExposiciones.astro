@@ -1,0 +1,24 @@
+---
+const exposiciones = [
+  { titulo: "Contratá el asfalto", lugar: "Galería X", fecha: "10-20 May 2025", link: "#" },
+  { titulo: "Otra muestra", lugar: "Espacio Y", fecha: "1-15 Jun 2025", link: "#" },
+  { titulo: "Tercera exposición", lugar: "Museo Z", fecha: "Julio 2025", link: "#" },
+];
+---
+<section class="max-w-7xl mx-auto px-4 py-16">
+  <h2 class="text-3xl font-bold mb-6 text-base-900">Exposiciones recientes</h2>
+  <div class="relative" x-data="{ scroll(el, dir) { el.scrollBy({ left: dir * 300, behavior: 'smooth' }) } }">
+    <div class="flex overflow-x-auto gap-6 pb-4 scroll-smooth" id="carrusel" x-ref="carrusel">
+      {exposiciones.map(expo => (
+        <div class="min-w-[280px] flex-shrink-0 bg-base-100 rounded-xl p-5 border border-base-200">
+          <div class="h-40 bg-base-200 rounded-lg mb-3"></div>
+          <h3 class="font-bold text-xl text-base-900">{expo.titulo}</h3>
+          <p class="text-base-600 text-sm">{expo.lugar} · {expo.fecha}</p>
+          <a href={expo.link} class="inline-block mt-3 text-sm text-base-900 hover:underline">Ver más info →</a>
+        </div>
+      ))}
+    </div>
+    <button class="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow" @click="scroll($refs.carrusel, -1)">◀</button>
+    <button class="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow" @click="scroll($refs.carrusel, 1)">▶</button>
+  </div>
+</section>
