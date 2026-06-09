@@ -1,13 +1,19 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import AboutProject from "@/components/AboutProject.astro";
-// import Banner from "@/components/Banner.astro";  // ← ELIMINADO
 import VideoEntrevista from "@/components/VideoEntrevista.astro";
 import ArtistasRecientes from "@/components/ArtistasRecientes.astro";
 import CarruselExposiciones from "@/components/CarruselExposiciones.astro";
 import TextosRecientes from "@/components/TextosRecientes.astro";
 import ArchivoColectivo from "@/components/ArchivoColectivo.astro";
 import Sumate from "@/components/Sumate.astro";
+import { getCollection } from "astro:content";
+
+const allArtistas = await getCollection("artistas");
+// Ordenar por fechaAgregado (más nuevo primero) y tomar 4
+const artistasRecientes = allArtistas
+  .sort((a, b) => (b.data.fechaAgregado?.getTime() || 0) - (a.data.fechaAgregado?.getTime() || 0))
+  .slice(0, 4);
 ---
 
 <BaseLayout>
@@ -28,9 +34,10 @@ import Sumate from "@/components/Sumate.astro";
     </section>
 
     <AboutProject />
-    <!-- <Banner />  ← Eliminado -->
     <VideoEntrevista />
-    <ArtistasRecientes />
+    <!-- Nuevo: muestra los 4 artistas -->
+    <ArtistasRecientes artistas={artistasRecientes} />
+    <!-- resto de secciones -->
     <CarruselExposiciones />
     <TextosRecientes />
     <ArchivoColectivo />
