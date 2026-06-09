@@ -1,0 +1,119 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+// Datos del artista (copiados directamente de artistas.json)
+const artista = {
+  slug: "rafael-denis-jara",
+  data: {
+    nombre: "Rafael Denis Jara",
+    foto: "/artistas/rafael-denis-jara.jpg",
+    fechaNacimiento: "23/02/2004",
+    medio: "Pintura (acrílico, óleo y acuarela), collage, intervención digital, redacción crítica, sonido.",
+    instagram: "@lasagdomo",
+    email: "jaradenisrafael@gmail.com",
+    biografia: "Artista visual, estudiante del ISA/UNA. Trabaja desde una mirada queer juvenil y proletaria, explorando vínculos sociales, nostalgia y la vida urbana.",
+    premios: [
+      "Seleccionado para el premio Henri Matisse (2024) con obra 'Esta silla está vacía'"
+    ],
+    participaciones: [
+      "Exposición anual del ISA 'Cuerpos y Corporalidades' (2023)",
+      "Premio Elden Tefft del CCPA (2025) – obra 'Sin nombre I'",
+      "Exposición colectiva 'Jardín Interior' en FUGA centro (2026)"
+    ],
+    experienciaExtra: [
+      "Ayudante de Damián Cabrera en montaje de Feria Oxígeno (2025)",
+      "Composición de soundtrack para corto 'Bicho' – concurso Jaguatá (2025)",
+      "Pasante en FUGA centro (2025-2026)"
+    ],
+    entrevistaDisponible: true,
+    biografiaLarga: `**Descripción personal:**  
+Actualmente curso la carrera de Artes Visuales en el Instituto Superior de Arte (ISA) de la Universidad Nacional de Asunción (UNA). Me interesa trabajar temas como los vínculos sociales, la nostalgia y la vida en zonas urbanas desde una mirada personal queer juvenil y proletaria.
+
+Crecí en el interior del país, específicamente en la ciudad de Fram del departamento de Itapúa en donde empecé a pintar desde que tenía 6 años hasta que cumplí 13. A mis 14 años decidí mudarme a la capital del país para terminar el colegio y eventualmente ingresar en la Universidad Nacional de Asunción, lo que puso en pausa mi desarrollo técnico por al menos 4 años. Esto afecta al cómo interpreto y desarrollo en mis obras la experiencia urbana y moldea desde temprana edad mi visión del entorno.
+
+**Referencias:**  
+Mis referencias principales vendrían siendo artistas como Leti Casati y Hugo Cataldo. Como estudiante de la nacional, el haber cursado la cátedra de pintura en mi segundo año de carrera (2024) con Casati despertó nuevamente mi interés por la técnica, algo que ya venía desarrollando desde temprana edad en un estudio casero de la ciudad de Fram con un grupo de señoras adultas y mayores, pero que fui descuidando hasta ese punto. Veo a Hugo Cataldo como referencia, no solo por su trabajo en pintura en series como Kachiai o las Fridas, que sí tengo en cuenta, sino más bien por el espacio que me abrió como pasante en la galería FUGA centro, en la cual vengo colaborando como pasante desde Septiembre del 2025.`
+  }
+};
+
+// Obras de Rafa (si las tienes; si no, array vacío)
+const obrasArtista = []; // Aquí puedes agregar las obras más adelante
+---
+
+<BaseLayout title={`${artista.data.nombre} - Expositorio Voyeur`}>
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-3 gap-10">
+      <!-- Columna izquierda -->
+      <div>
+        {artista.data.foto && (
+          <img src={artista.data.foto} alt={artista.data.nombre} class="w-full rounded-xl shadow" />
+        )}
+        <div class="mt-6 space-y-3 text-sm text-base-700">
+          {artista.data.fechaNacimiento && <p><span class="font-semibold">Nacimiento:</span> {artista.data.fechaNacimiento}</p>}
+          {artista.data.medio && <p><span class="font-semibold">Medio:</span> {artista.data.medio}</p>}
+          {artista.data.instagram && (
+            <p><span class="font-semibold">Instagram:</span> <a href={`https://instagram.com/${artista.data.instagram.replace('@','')}`} target="_blank" class="text-[#B70538] hover:underline">{artista.data.instagram}</a></p>
+          )}
+          {artista.data.email && (
+            <p><span class="font-semibold">Email:</span> <a href={`mailto:${artista.data.email}`} class="text-[#B70538] hover:underline">{artista.data.email}</a></p>
+          )}
+          {artista.data.entrevistaDisponible && (
+            <div class="mt-4 inline-block bg-[#B70538] text-white text-xs px-3 py-1 rounded-full">Entrevista disponible</div>
+          )}
+        </div>
+      </div>
+
+      <!-- Columna derecha -->
+      <div class="md:col-span-2">
+        <h1 class="text-4xl font-bold">{artista.data.nombre}</h1>
+        {artista.data.biografia && <p class="mt-4 text-base-700 italic">{artista.data.biografia}</p>}
+        {artista.data.biografiaLarga && (
+          <div class="prose max-w-none mt-6" set:html={artista.data.biografiaLarga.replace(/\n/g, '<br/>')} />
+        )}
+
+        {artista.data.premios && artista.data.premios.length > 0 && (
+          <>
+            <h2 class="text-2xl font-semibold mt-8">Premios y selecciones</h2>
+            <ul class="list-disc list-inside space-y-1">
+              {artista.data.premios.map(p => <li>{p}</li>)}
+            </ul>
+          </>
+        )}
+
+        {artista.data.participaciones && artista.data.participaciones.length > 0 && (
+          <>
+            <h2 class="text-2xl font-semibold mt-8">Exposiciones</h2>
+            <ul class="list-disc list-inside space-y-1">
+              {artista.data.participaciones.map(p => <li>{p}</li>)}
+            </ul>
+          </>
+        )}
+
+        {artista.data.experienciaExtra && artista.data.experienciaExtra.length > 0 && (
+          <>
+            <h2 class="text-2xl font-semibold mt-8">Experiencia extra</h2>
+            <ul class="list-disc list-inside space-y-1">
+              {artista.data.experienciaExtra.map(e => <li>{e}</li>)}
+            </ul>
+          </>
+        )}
+
+        <h2 class="text-2xl font-semibold mt-10 mb-6">Obras</h2>
+        {obrasArtista.length === 0 ? (
+          <p class="text-base-500">Próximamente obras de este artista.</p>
+        ) : (
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {obrasArtista.map(obra => (
+              <a href={`/obras/${obra.slug}`} class="group bg-base-100 rounded-lg border border-base-200 p-4 hover:shadow transition">
+                {obra.data.imagen && <img src={obra.data.imagen} class="w-full h-48 object-cover rounded mb-3" />}
+                <h3 class="font-bold text-lg">{obra.data.titulo}</h3>
+                <p class="text-sm text-base-500">{obra.data.ano} · {obra.data.tecnica}</p>
+                {obra.data.descripcion && <p class="text-sm mt-2">{obra.data.descripcion}</p>}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</BaseLayout>
