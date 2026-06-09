@@ -1,11 +1,8 @@
 ---
-// Datos de ejemplo. Luego los podés traer de una colección de contenido
-const artistas = [
-  { nombre: "Brune Poletti", slug: "brume-poletti" },
-  { nombre: "Flor Oviedo", slug: "flor-oviedo" },
-  { nombre: "Ceci ", slug: "ceci" },
-  { nombre: "Gio armoa", slug: "Gio-Armoa" }
-];
+export interface Props {
+  artistas: any[];
+}
+const { artistas } = Astro.props;
 ---
 <section class="max-w-7xl mx-auto px-4 py-16">
   <div class="flex justify-between items-center mb-8">
@@ -15,9 +12,13 @@ const artistas = [
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
     {artistas.map(artista => (
       <a href={`/artistas/${artista.slug}`} class="group block bg-base-100 rounded-xl p-6 text-center hover:shadow-md transition border border-base-200">
-        <div class="w-32 h-32 mx-auto bg-base-200 rounded-full mb-4"></div>
-        <h3 class="font-semibold text-xl text-base-900">{artista.nombre}</h3>
-        <p class="text-sm text-base-500 mt-1 group-hover:text-base-700">Ver obras →</p>
+        {artista.data.foto ? (
+          <img src={artista.data.foto} alt={artista.data.nombre} class="w-32 h-32 mx-auto rounded-full object-cover mb-4" />
+        ) : (
+          <div class="w-32 h-32 mx-auto bg-base-200 rounded-full mb-4"></div>
+        )}
+        <h3 class="font-semibold text-xl text-base-900">{artista.data.nombre}</h3>
+        <p class="text-sm text-base-500 mt-1 group-hover:text-base-700">Ver perfil →</p>
       </a>
     ))}
   </div>
