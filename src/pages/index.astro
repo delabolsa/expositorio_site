@@ -11,14 +11,21 @@ import { getCollection } from "astro:content";
 
 // Obtener artistas ordenados por fechaAgregado (más reciente primero)
 const allArtistas = await getCollection("artistas");
-const artistasRecientes = allArtistas
-  .sort((a, b) => (b.data.fechaAgregado?.getTime() || 0) - (a.data.fechaAgregado?.getTime() || 0))
+console.log("📊 Total artistas:", allArtistas.length);
+
+// Filtrar los que tienen fechaAgregado
+const artistasConFecha = allArtistas.filter(a => a.data.fechaAgregado);
+console.log("📅 Con fecha:", artistasConFecha.length);
+
+const artistasRecientes = artistasConFecha
+  .sort((a, b) => b.data.fechaAgregado.getTime() - a.data.fechaAgregado.getTime())
   .slice(0, 4);
+
+console.log("✨ Recientes:", artistasRecientes.map(a => a.data.nombre));
 ---
 
 <BaseLayout title="Expositorio Voyeur - Archivo curatorial independiente">
   <div class="text-base-950 flex flex-col items-center text-center">
-
     <!-- Hero original -->
     <section class="w-full h-[800px] bg-[#ffffff] relative flex flex-col items-center justify-center">
       <div class="text-center">
@@ -34,26 +41,22 @@ const artistasRecientes = allArtistas
       </a>
     </section>
 
-    <!-- AboutProject: contiene el bloque "Archivo curatorial independiente" + donación -->
     <AboutProject />
-
-    <!-- Video entrevista destacada -->
     <VideoEntrevista />
 
-    <!-- Artistas recientes (últimos 4 agregados) -->
-    <ArtistasRecientes artistas={artistasRecientes} />
+    <!-- Sección Artistas Recientes (solo si hay) -->
+    {artistasRecientes.length > 0 ? (
+      <ArtistasRecientes artistas={artistasRecientes} />
+    ) : (
+      <div class="max-w-7xl mx-auto px-4 py-16 text-center">
+        <h2 class="text-3xl font-bold text-base-900">Artistas recientes</h2>
+        <p class="text-base-500 mt-4">Próximamente artistas cargados.</p>
+      </div>
+    )}
 
-    <!-- Carrusel de exposiciones -->
     <CarruselExposiciones />
-
-    <!-- Textos recientes (artículos, críticas) -->
     <TextosRecientes />
-
-    <!-- Archivo colectivo (invitación a aportar) -->
     <ArchivoColectivo />
-
-    <!-- Sumate (formularios para artistas/colaboradores) -->
     <Sumate />
-
   </div>
 </BaseLayout>
