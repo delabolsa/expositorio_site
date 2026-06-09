@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, getEntryBySlug } from "astro:content";
+
+export async function getStaticPaths() {
+  const obras = await getCollection("obras");
+  return obras.map(obra => ({
+    params: { slug: obra.slug },
+    props: { obra },
+  }));
+}
+
+const { obra } = Astro.props;
+const artista = await getEntryBySlug("artistas", obra.data.artista);
+---
+
+<BaseLayout title={`${obra.data.titulo} - Expositorio Voyeur`}>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    {obra.data.imagen && (
+      <img src={obra.data.imagen} alt={obra.data.titulo} class="w-full rounded-xl shadow mb-8" />
+    )}
+    <h1 class="text-4xl font-bold mb-4">{obra.data.titulo}</h1>
+    <p class="text-lg text-base-700">Artista: <a href={`/artistas/${artista?.slug}`} class="text-[#B70538] hover:underline">{artista?.data.nombre}</a></p>
+    <p class="text-base-600">{obra.data.ano} · {obra.data.tecnica}</p>
+    {obra.data.descripcion && <p class="mt-6 text-base-800">{obra.data.descripcion}</p>}
+  </div>
+</BaseLayout>
