@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+const artistas = await getCollection('artistas');
+---
+
+<html>
+  <body>
+    <h1>Diagnóstico</h1>
+    <p>Artistas encontrados: {artistas.length}</p>
+    {artistas.length === 0 ? (
+      <p style="color:red">No se encontraron artistas. Revisa las rutas y el build log.</p>
+    ) : (
+      <ul>
+        {artistas.map(a => <li>{a.slug} - {a.data.nombre}</li>)}
+      </ul>
+    )}
+  </body>
+</html>
