@@ -1,6 +1,6 @@
 ---
 nombre: Rafael Denis Jara
-foto: /artistas/rafael-denis-jara.jpg      # (opcional, luego pones la imagen)
+foto: /artistas/rafael-denis-jara.jpg 
 fechaNacimiento: 23/02/2004
 medio: "Pintura (acrílico, óleo y acuarela), collage, intervención digital, redacción crítica, sonido."
 instagram: "@lasagdomo"
