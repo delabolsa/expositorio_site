@@ -3,27 +3,23 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import artistasData from "../../data/artistas.json";
 import obrasData from "../../data/obras.json";
 
-// Obtener el slug de la URL
-const { slug } = Astro.params;
-
-// Buscar el artista por slug
-const artista = artistasData.find(a => a.slug === slug);
-
-// Si no se encuentra, mostrar error
-if (!artista) {
-  return <BaseLayout title="Artista no encontrado">
-    <div class="p-10 text-center">
-      <h1 class="text-2xl font-bold">Artista no encontrado</h1>
-      <p>No existe un artista con el slug: {slug}</p>
-    </div>
-  </BaseLayout>;
+export async function getStaticPaths() {
+  return artistasData.map(artista => ({
+    params: { slug: artista.slug },
+    props: { artista },
+  }));
 }
 
-const pageTitle = `${artista.data.nombre} - Expositorio Voyeur`;
+const { artista } = Astro.props;
+
+if (!artista) {
+  return <BaseLayout title="Error">No se encontró el artista</BaseLayout>;
+}
+
 const obrasArtista = obrasData.filter(obra => obra.data.artista === artista.slug);
 ---
 
-<BaseLayout title={pageTitle}>
+<BaseLayout title={`${artista.data.nombre} - Expositorio Voyeur`}>
   <div class="max-w-6xl mx-auto px-4 py-12">
     <div class="grid md:grid-cols-3 gap-10">
       <!-- Columna izquierda -->
