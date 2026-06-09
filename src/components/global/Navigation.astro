@@ -5,20 +5,13 @@
 >
 
   <!-- LOGO -->
-   <div class="flex items-center w-auto">
+  <div class="flex items-center w-auto">
     <a href="/" class="flex items-center">
-  <img
-    src="/logo.png"
-    alt="Expiatoriovoyeur"
-    class="h-16 w-auto"
-  />
-</a>
+      <img src="/logo.png" alt="Expiatoriovoyeur" class="h-16 w-auto" />
+    </a>
 
     <!-- MOBILE BUTTON -->
-    <button
-      @click="open = !open"
-      class="md:hidden text-base-900"
-    >
+    <button @click="open = !open" class="md:hidden text-base-900">
       ☰
     </button>
   </div>
@@ -28,34 +21,37 @@
     :class="{'flex': open, 'hidden': !open}"
     class="flex-col md:flex md:flex-row gap-6 mt-4 md:mt-0 md:items-center hidden"
   >
+    <!-- Botón Sumate (destacado) -->
     <a
       href="https://expiatoriovoyeur.com/formularios"
-      class="text-sm text-base-50 px-3 py-1 rounded-lg bg-[#B70538] hover:bg-black hover:text-white"
+      class="text-sm text-white px-3 py-1 rounded-lg bg-[#B70538] hover:bg-black hover:text-white"
     >
       Sumate
+    </a>
+
+    <!-- Participar (nuevo, según estructura solicitada) -->
+    <a href="/participar" class="text-sm text-base-700 hover:text-black">
+      Participar
+    </a>
 
     <a href="/artistas" class="text-sm text-base-700 hover:text-black">
       Artistas
     </a>
 
-    <a href="/entrevistas" class="text-sm text-base-700 hover:text-black">
-      entrevistas
-    </a>
-
     <a href="/archivo" class="text-sm text-base-700 hover:text-black">
-      archivo
+      Archivo
     </a>
 
- <a href="/exposiciones" class="text-sm text-base-700 hover:text-black">
-      exposiciones
+    <a href="/entrevistas" class="text-sm text-base-700 hover:text-black">
+      Entrevistas
     </a>
 
-    <a href="/Acerca de" class="text-sm text-base-700 hover:text-black">
+    <a href="/exposiciones" class="text-sm text-base-700 hover:text-black">
+      Exposiciones
+    </a>
+
+    <a href="/acerca" class="text-sm text-base-700 hover:text-black">
       Acerca de
     </a>
-
-    </a>
-
   </nav>
-
 </div>
