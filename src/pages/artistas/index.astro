@@ -1,0 +1,45 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const allArtistas = await getCollection("artistas");
+// Ordenar por fechaAgregado descendente (más reciente primero)
+const artistasOrdenados = allArtistas.sort((a, b) => 
+  (b.data.fechaAgregado?.getTime() || 0) - (a.data.fechaAgregado?.getTime() || 0)
+);
+
+// Paginación (opcional, muestra 12 por página)
+const page = Number(Astro.url.searchParams.get("page")) || 1;
+const pageSize = 12;
+const totalArtistas = artistasOrdenados.length;
+const totalPages = Math.ceil(totalArtistas / pageSize);
+const artistasPagina = artistasOrdenados.slice((page-1)*pageSize, page*pageSize);
+---
+
+<BaseLayout title="Artistas - Expositorio Voyeur">
+  <div class="max-w-7xl mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold mb-10">Artistas</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      {artistasPagina.map(artista => (
+        <a href={`/artistas/${artista.slug}`} class="group block bg-base-100 rounded-xl overflow-hidden shadow hover:shadow-md transition border border-base-200">
+          {artista.data.foto ? (
+            <img src={artista.data.foto} alt={artista.data.nombre} class="w-full h-48 object-cover" />
+          ) : (
+            <div class="w-full h-48 bg-base-200"></div>
+          )}
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-xl">{artista.data.nombre}</h3>
+            <p class="text-sm text-base-500 mt-1">Ver perfil →</p>
+          </div>
+        </a>
+      ))}
+    </div>
+    {totalPages > 1 && (
+      <div class="flex justify-center gap-2 mt-12">
+        {Array.from({ length: totalPages }, (_, i) => i+1).map(p => (
+          <a href={`?page=${p}`} class={`px-3 py-1 border rounded ${p === page ? 'bg-base-900 text-white' : 'bg-white'}`}>{p}</a>
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>
