@@ -1,18 +1,13 @@
 ---
-import { getCollection } from 'astro:content';
-const artistas = await getCollection('artistas');
+import artistasData from "../data/artistas.json";
 ---
 
 <html>
   <body>
-    <h1>Diagnóstico</h1>
-    <p>Artistas encontrados: {artistas.length}</p>
-    {artistas.length === 0 ? (
-      <p style="color:red">No se encontraron artistas. Revisa las rutas y el build log.</p>
-    ) : (
-      <ul>
-        {artistas.map(a => <li>{a.slug} - {a.data.nombre}</li>)}
-      </ul>
-    )}
+    <h1>Diagnóstico con JSON</h1>
+    <p>Artistas encontrados: {artistasData.length}</p>
+    <ul>
+      {artistasData.map(a => <li>{a.slug} - {a.data.nombre}</li>)}
+    </ul>
   </body>
 </html>
