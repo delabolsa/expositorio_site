@@ -1,0 +1,25 @@
+---
+// Simulación: podrías importar getCollection y limitar a 3 posts
+const textos = [
+  { titulo: "Nota sobre arte y periferia", resumen: "Un análisis de las propuestas emergentes...", fecha: "12 Abr 2025", slug: "nota-arte-periferia" },
+  { titulo: "Entrevista a Flor Oviedo", resumen: "Procesos pictóricos y memoria...", fecha: "5 Abr 2025", slug: "entrevista-flor-oviedo" },
+];
+---
+<section class="max-w-7xl mx-auto px-4 py-16">
+  <h2 class="text-3xl font-bold mb-6 text-base-900">Textos recientes</h2>
+  <div class="space-y-6">
+    {textos.map(texto => (
+      <article class="border-b border-base-200 pb-4">
+        <h3 class="text-xl font-semibold text-base-900">{texto.titulo}</h3>
+        <p class="text-base-600 mt-1">{texto.resumen}</p>
+        <div class="flex justify-between items-center mt-2 text-sm text-base-500">
+          <span>{texto.fecha}</span>
+          <a href={`/posts/${texto.slug}`} class="text-base-900 hover:underline">Leer más →</a>
+        </div>
+      </article>
+    ))}
+    <div class="pt-2">
+      <a href="/archivo" class="text-sm text-base-600 hover:underline">Ver todos los textos →</a>
+    </div>
+  </div>
+</section>
