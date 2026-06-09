@@ -13,23 +13,14 @@ const artista = artistasData.find(a => a.slug === slug);
 if (!artista) {
   return <BaseLayout title="Artista no encontrado">
     <div class="p-10 text-center">
-      <h1 class="text-2xl">Artista no encontrado</h1>
-      <p>El artista que buscas no existe.</p>
+      <h1 class="text-2xl font-bold">Artista no encontrado</h1>
+      <p>No existe un artista con el slug: {slug}</p>
     </div>
   </BaseLayout>;
 }
 
 const pageTitle = `${artista.data.nombre} - Expositorio Voyeur`;
-const obrasArtista = obrasData
-  .filter(obra => obra.data.artista === artista.slug)
-  .sort((a,b) => (b.data.ano || 0) - (a.data.ano || 0));
-
-// Generar rutas estáticas para el build
-export async function getStaticPaths() {
-  return artistasData.map(artista => ({
-    params: { slug: artista.slug },
-  }));
-}
+const obrasArtista = obrasData.filter(obra => obra.data.artista === artista.slug);
 ---
 
 <BaseLayout title={pageTitle}>
@@ -37,9 +28,7 @@ export async function getStaticPaths() {
     <div class="grid md:grid-cols-3 gap-10">
       <!-- Columna izquierda -->
       <div>
-        {artista.data.foto && (
-          <img src={artista.data.foto} alt={artista.data.nombre} class="w-full rounded-xl shadow" />
-        )}
+        {artista.data.foto && <img src={artista.data.foto} alt={artista.data.nombre} class="w-full rounded-xl shadow" />}
         <div class="mt-6 space-y-3 text-sm text-base-700">
           {artista.data.fechaNacimiento && <p><span class="font-semibold">Nacimiento:</span> {artista.data.fechaNacimiento}</p>}
           {artista.data.medio && <p><span class="font-semibold">Medio:</span> {artista.data.medio}</p>}
