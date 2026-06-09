@@ -1,22 +1,18 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import AboutProject from "@/components/AboutProject.astro";
-// Importa los nuevos componentes
-import Banner from "@/components/Banner.astro";
-import ArchivoCuratorial from "@/components/ArchivoCuratorial.astro";
+// import Banner from "@/components/Banner.astro";  // ← ELIMINADO
 import VideoEntrevista from "@/components/VideoEntrevista.astro";
 import ArtistasRecientes from "@/components/ArtistasRecientes.astro";
 import CarruselExposiciones from "@/components/CarruselExposiciones.astro";
 import TextosRecientes from "@/components/TextosRecientes.astro";
 import ArchivoColectivo from "@/components/ArchivoColectivo.astro";
 import Sumate from "@/components/Sumate.astro";
-// Si tenés BlogEntries, etc., mantenelos si los usás
 ---
 
 <BaseLayout>
   <div class="text-base-950 flex flex-col items-center text-center">
-
-    <!-- SECCIÓN HERO ORIGINAL (no la toques) -->
+    <!-- Hero original (se mantiene) -->
     <section class="w-full h-[800px] bg-[#ffffff] relative flex flex-col items-center justify-center">
       <div class="text-center">
         <h1 class="text-4xl font-regular leading-tight text-black">
@@ -32,10 +28,7 @@ import Sumate from "@/components/Sumate.astro";
     </section>
 
     <AboutProject />
-
-    <!-- NUEVAS SECCIONES (en el orden requerido) -->
-    <Banner />
-    <ArchivoCuratorial />
+    <!-- <Banner />  ← Eliminado -->
     <VideoEntrevista />
     <ArtistasRecientes />
     <CarruselExposiciones />
