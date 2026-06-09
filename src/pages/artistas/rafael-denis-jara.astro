@@ -19,6 +19,7 @@ const obrasArtista = obrasData
 <BaseLayout title={`${artista.data.nombre} - Expositorio Voyeur`}>
   <div class="max-w-6xl mx-auto px-4 py-12">
     <div class="grid md:grid-cols-3 gap-10">
+      <!-- Columna izquierda -->
       <div>
         {artista.data.foto && (
           <img src={artista.data.foto} alt={artista.data.nombre} class="w-full rounded-xl shadow" />
@@ -38,11 +39,10 @@ const obrasArtista = obrasData
         </div>
       </div>
 
+      <!-- Columna derecha -->
       <div class="md:col-span-2">
         <h1 class="text-4xl font-bold">{artista.data.nombre}</h1>
-        {artista.data.biografia && (
-          <p class="mt-4 text-base-700 italic">{artista.data.biografia}</p>
-        )}
+        {artista.data.biografia && <p class="mt-4 text-base-700 italic">{artista.data.biografia}</p>}
         {artista.data.biografiaLarga && (
           <div class="prose max-w-none mt-6" set:html={artista.data.biografiaLarga.replace(/\n/g, '<br/>')} />
         )}
