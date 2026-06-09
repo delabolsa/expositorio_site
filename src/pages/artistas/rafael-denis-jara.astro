@@ -1,26 +1,24 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getCollection, getEntryBySlug } from "astro:content";
+import artistasData from "../../data/artistas.json";
+import obrasData from "../../data/obras.json";
 
 export async function getStaticPaths() {
-  const artistas = await getCollection("artistas");
-  return artistas.map(artista => ({
+  return artistasData.map(artista => ({
     params: { slug: artista.slug },
     props: { artista },
   }));
 }
 
 const { artista } = Astro.props;
-const allObras = await getCollection("obras");
-const obrasArtista = allObras
+const obrasArtista = obrasData
   .filter(obra => obra.data.artista === artista.slug)
-  .sort((a, b) => (b.data.ano || 0) - (a.data.ano || 0));
+  .sort((a,b) => (b.data.ano || 0) - (a.data.ano || 0));
 ---
 
 <BaseLayout title={`${artista.data.nombre} - Expositorio Voyeur`}>
   <div class="max-w-6xl mx-auto px-4 py-12">
     <div class="grid md:grid-cols-3 gap-10">
-      <!-- Columna izquierda: foto y datos -->
       <div>
         {artista.data.foto && (
           <img src={artista.data.foto} alt={artista.data.nombre} class="w-full rounded-xl shadow" />
@@ -40,15 +38,14 @@ const obrasArtista = allObras
         </div>
       </div>
 
-      <!-- Columna derecha: biografía, premios, obras -->
       <div class="md:col-span-2">
         <h1 class="text-4xl font-bold">{artista.data.nombre}</h1>
         {artista.data.biografia && (
           <p class="mt-4 text-base-700 italic">{artista.data.biografia}</p>
         )}
-        <div class="prose max-w-none mt-6">
-          {artista.body && <div set:html={artista.rendered?.html} />}
-        </div>
+        {artista.data.biografiaLarga && (
+          <div class="prose max-w-none mt-6" set:html={artista.data.biografiaLarga.replace(/\n/g, '<br/>')} />
+        )}
 
         {artista.data.premios && artista.data.premios.length > 0 && (
           <>
@@ -84,9 +81,7 @@ const obrasArtista = allObras
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {obrasArtista.map(obra => (
               <a href={`/obras/${obra.slug}`} class="group bg-base-100 rounded-lg border border-base-200 p-4 hover:shadow transition">
-                {obra.data.imagen && (
-                  <img src={obra.data.imagen} alt={obra.data.titulo} class="w-full h-48 object-cover rounded mb-3" />
-                )}
+                {obra.data.imagen && <img src={obra.data.imagen} class="w-full h-48 object-cover rounded mb-3" />}
                 <h3 class="font-bold text-lg">{obra.data.titulo}</h3>
                 <p class="text-sm text-base-500">{obra.data.ano} · {obra.data.tecnica}</p>
                 {obra.data.descripcion && <p class="text-sm mt-2">{obra.data.descripcion}</p>}
