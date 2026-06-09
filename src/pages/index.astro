@@ -1,28 +1,23 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import BlogEntries from "@/components/entries/BlogEntry.astro";
 import AboutProject from "@/components/AboutProject.astro";
-import Cta from "@/components/global/Cta.astro";
-import { getCollection } from "astro:content";
-
-const allPosts = await getCollection("posts");
-
-const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-
-// Sort posts by date (newest first)
-const sortedPosts = allPosts.sort(
-  (a, b) =>
-    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-);
+// Importa los nuevos componentes
+import Banner from "@/components/Banner.astro";
+import ArchivoCuratorial from "@/components/ArchivoCuratorial.astro";
+import VideoEntrevista from "@/components/VideoEntrevista.astro";
+import ArtistasRecientes from "@/components/ArtistasRecientes.astro";
+import CarruselExposiciones from "@/components/CarruselExposiciones.astro";
+import TextosRecientes from "@/components/TextosRecientes.astro";
+import ArchivoColectivo from "@/components/ArchivoColectivo.astro";
+import Sumate from "@/components/Sumate.astro";
+// Si tenés BlogEntries, etc., mantenelos si los usás
 ---
-
 
 <BaseLayout>
   <div class="text-base-950 flex flex-col items-center text-center">
 
+    <!-- SECCIÓN HERO ORIGINAL (no la toques) -->
     <section class="w-full h-[800px] bg-[#ffffff] relative flex flex-col items-center justify-center">
-
-      <!-- Texto principal centrado -->
       <div class="text-center">
         <h1 class="text-4xl font-regular leading-tight text-black">
           Observaciones sobre artistas <br />
@@ -30,19 +25,23 @@ const sortedPosts = allPosts.sort(
           <span class="bg-yellow-300 px-2">emergentes*</span>
         </h1>
       </div>
-
-      <!-- Texto/link inferior -->
-      <a
-        href="https://expiatoriovoyeur.com/nota-de-intencion"
-        class="absolute bottom-20 flex flex-col items-center text-black hover:opacity-70 transition"
-      >
+      <a href="https://expiatoriovoyeur.com/nota-de-intencion" class="absolute bottom-20 flex flex-col items-center text-black hover:opacity-70 transition">
         <span class="w-4 h-4 rounded-full bg-[#c10043] mb-4"></span>
         <span class="text-sm">Lee la nota de intención.</span>
       </a>
-
     </section>
 
     <AboutProject />
+
+    <!-- NUEVAS SECCIONES (en el orden requerido) -->
+    <Banner />
+    <ArchivoCuratorial />
+    <VideoEntrevista />
+    <ArtistasRecientes />
+    <CarruselExposiciones />
+    <TextosRecientes />
+    <ArchivoColectivo />
+    <Sumate />
 
   </div>
 </BaseLayout>
