@@ -9,16 +9,17 @@ import ArchivoColectivo from "@/components/ArchivoColectivo.astro";
 import Sumate from "@/components/Sumate.astro";
 import { getCollection } from "astro:content";
 
+// Obtener artistas ordenados por fechaAgregado (más reciente primero)
 const allArtistas = await getCollection("artistas");
-// Ordenar por fechaAgregado (más nuevo primero) y tomar 4
 const artistasRecientes = allArtistas
   .sort((a, b) => (b.data.fechaAgregado?.getTime() || 0) - (a.data.fechaAgregado?.getTime() || 0))
   .slice(0, 4);
 ---
 
-<BaseLayout>
+<BaseLayout title="Expositorio Voyeur - Archivo curatorial independiente">
   <div class="text-base-950 flex flex-col items-center text-center">
-    <!-- Hero original (se mantiene) -->
+
+    <!-- Hero original -->
     <section class="w-full h-[800px] bg-[#ffffff] relative flex flex-col items-center justify-center">
       <div class="text-center">
         <h1 class="text-4xl font-regular leading-tight text-black">
@@ -33,14 +34,26 @@ const artistasRecientes = allArtistas
       </a>
     </section>
 
+    <!-- AboutProject: contiene el bloque "Archivo curatorial independiente" + donación -->
     <AboutProject />
+
+    <!-- Video entrevista destacada -->
     <VideoEntrevista />
-    <!-- Nuevo: muestra los 4 artistas -->
+
+    <!-- Artistas recientes (últimos 4 agregados) -->
     <ArtistasRecientes artistas={artistasRecientes} />
-    <!-- resto de secciones -->
+
+    <!-- Carrusel de exposiciones -->
     <CarruselExposiciones />
+
+    <!-- Textos recientes (artículos, críticas) -->
     <TextosRecientes />
+
+    <!-- Archivo colectivo (invitación a aportar) -->
     <ArchivoColectivo />
+
+    <!-- Sumate (formularios para artistas/colaboradores) -->
     <Sumate />
+
   </div>
 </BaseLayout>
