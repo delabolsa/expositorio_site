@@ -17,7 +17,7 @@ experienciaExtra:
   - "Composición de soundtrack para corto 'Bicho' – concurso Jaguatá (2025)"
   - "Pasante en FUGA centro (2025-2026) – apoyo a varias exposiciones"
 entrevistaDisponible: true
-fechaAgregado: 2026-06-09
+fechaAgregado: 9-06-2026
 ---
 
 **Descripción personal:**  
