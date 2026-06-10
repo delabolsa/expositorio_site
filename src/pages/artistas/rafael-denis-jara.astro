@@ -1,119 +1,323 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
-// Datos del artista (copiados directamente de artistas.json)
+// ============================================================
+// TODO: COMPLETAR TODOS LOS DATOS DEL ARTISTA
+// ============================================================
 const artista = {
+  // URL amigable para la página (ej: "rafael-denis-jara")
   slug: "rafael-denis-jara",
-  data: {
-    nombre: "Rafael Denis Jara",
-    foto: "/artistas/rafael-denis-jara.jpg",
-    fechaNacimiento: "23/02/2004",
-    medio: "Pintura (acrílico, óleo y acuarela), collage, intervención digital, redacción crítica, sonido.",
-    instagram: "@lasagdomo",
-    email: "jaradenisrafael@gmail.com",
-    biografia: "Artista visual, estudiante del ISA/UNA. Trabaja desde una mirada queer juvenil y proletaria, explorando vínculos sociales, nostalgia y la vida urbana.",
-    premios: [
-      "Seleccionado para el premio Henri Matisse (2024) con obra 'Esta silla está vacía'"
-    ],
-    participaciones: [
-      "Exposición anual del ISA 'Cuerpos y Corporalidades' (2023)",
-      "Premio Elden Tefft del CCPA (2025) – obra 'Sin nombre I'",
-      "Exposición colectiva 'Jardín Interior' en FUGA centro (2026)"
-    ],
-    experienciaExtra: [
-      "Ayudante de Damián Cabrera en montaje de Feria Oxígeno (2025)",
-      "Composición de soundtrack para corto 'Bicho' – concurso Jaguatá (2025)",
-      "Pasante en FUGA centro (2025-2026)"
-    ],
-    entrevistaDisponible: true,
-    biografiaLarga: `**Descripción personal:**  
-Actualmente curso la carrera de Artes Visuales en el Instituto Superior de Arte (ISA) de la Universidad Nacional de Asunción (UNA). Me interesa trabajar temas como los vínculos sociales, la nostalgia y la vida en zonas urbanas desde una mirada personal queer juvenil y proletaria.
 
-Crecí en el interior del país, específicamente en la ciudad de Fram del departamento de Itapúa en donde empecé a pintar desde que tenía 6 años hasta que cumplí 13. A mis 14 años decidí mudarme a la capital del país para terminar el colegio y eventualmente ingresar en la Universidad Nacional de Asunción, lo que puso en pausa mi desarrollo técnico por al menos 4 años. Esto afecta al cómo interpreto y desarrollo en mis obras la experiencia urbana y moldea desde temprana edad mi visión del entorno.
+  // ----------------------------------------------------------
+  // FOTOGRAFÍA PROFESIONAL (retrato o medio cuerpo)
+  // ----------------------------------------------------------
+  // TODO: Agregar ruta de la imagen dentro de /public (ej: "/artistas/rafael-denis-jara.jpg")
+  foto: "/artistas/rafael-denis-jara.jpg",  // <-- PONER RUTA CUANDO TENGAS LA FOTO
 
-**Referencias:**  
-Mis referencias principales vendrían siendo artistas como Leti Casati y Hugo Cataldo. Como estudiante de la nacional, el haber cursado la cátedra de pintura en mi segundo año de carrera (2024) con Casati despertó nuevamente mi interés por la técnica, algo que ya venía desarrollando desde temprana edad en un estudio casero de la ciudad de Fram con un grupo de señoras adultas y mayores, pero que fui descuidando hasta ese punto. Veo a Hugo Cataldo como referencia, no solo por su trabajo en pintura en series como Kachiai o las Fridas, que sí tengo en cuenta, sino más bien por el espacio que me abrió como pasante en la galería FUGA centro, en la cual vengo colaborando como pasante desde Septiembre del 2025.`
-  }
+  // ----------------------------------------------------------
+  // 1. PALABRAS CLAVE (línea de trabajo)
+  // ----------------------------------------------------------
+  palabrasClave: "Pintura, collage, intervención digital, redacción crítica, trabajo de sonido, vínculos sociales, nostalgia, vida urbana, mirada queer, juvenil, proletaria, referencias: Leti Casati, Hugo Cataldo",
+
+  // ----------------------------------------------------------
+  // 2. CONTACTO PROFESIONAL
+  // ----------------------------------------------------------
+  email: "jaradenisrafael@gmail.com",
+  instagram: "lasagdomo",           // sin @
+  behance: "",                      // si no tiene, dejar vacío
+  linkedin: "",                     // si no tiene, dejar vacío
+  web: "",                          // si no tiene, dejar vacío
+
+  // ----------------------------------------------------------
+  // 3. DATOS BÁSICOS
+  // ----------------------------------------------------------
+  nombreCompleto: "Rafael Denis Jara",
+  nombreArtistico: "",              // no tiene
+  colectivo: "",                    // no pertenece
+  fechaNacimiento: "23/02/2004",
+  lugarNacimiento: "Fram, Departamento de Itapúa, Paraguay",
+  nacionalidad: "Paraguayo",
+
+  // ----------------------------------------------------------
+  // 4. BIOGRAFÍA Y DECLARACIÓN ARTÍSTICA (tercera persona)
+  // ----------------------------------------------------------
+  resumenBiografico: `Rafael Denis Jara creció en la ciudad de Fram, en el interior de Paraguay, donde comenzó a pintar desde los 6 años en un estudio casero junto a un grupo de señoras mayores. A los 14 años se mudó a Asunción para terminar sus estudios secundarios y luego ingresar a la Universidad Nacional de Asunción, lo que puso en pausa su desarrollo técnico durante aproximadamente cuatro años. Actualmente cursa la carrera de Artes Visuales en el Instituto Superior de Arte (ISA) – UNA.
+El haber cursado la cátedra de pintura con la artista Leti Casati en 2024 reactivó su interés por la técnica. Además, desde septiembre de 2025 colabora como pasante en la galería FUGA centro, donde fue influenciado por el trabajo de Hugo Cataldo, especialmente por la serie “Mariquita” y su abordaje de lo queer.
+Su trayectoria incluye participación en exposiciones colectivas, selecciones en premios (Henri Matisse 2024) y experiencia en montaje de ferias (Oxígeno 2025) y en la composición de sonido para el cortometraje animado Bicho (Jaguatá 2025).`,
+
+  declaracionArtistica: `Su obra se centra en los vínculos sociales, la nostalgia y la vida en zonas urbanas, todo ello desde una mirada personal, queer, juvenil y proletaria. Su experiencia de crecer en un entorno rural más reprimido (Fram) y luego trasladarse a Asunción –un espacio relativamente más diverso pero todavía limitado– marca su interpretación del entorno urbano.
+Trabaja principalmente con pintura (acrílico, óleo y acuarela), collage e intervención digital de fotografías. Complementa su práctica con redacción crítica y experimentación sonora. Busca mezclar el registro y la poética de la imagen, inspirándose en artistas como Leti Casati (que despertó nuevamente su interés por la técnica) y Hugo Cataldo (por su factor queer y su tratamiento de la imagen).`,
+
+  // ----------------------------------------------------------
+  // 5. OTROS PROYECTOS (vacío en este caso)
+  // ----------------------------------------------------------
+  otrosProyectos: "",
+
+  // ----------------------------------------------------------
+  // 6. FORMACIÓN
+  // ----------------------------------------------------------
+  formacion: [
+    "En curso: Artes Visuales, Instituto Superior de Arte (ISA) – Universidad Nacional de Asunción (UNA).",
+    "2024: Cátedra de pintura con Leti Casati (ISA – UNA).",
+    "Formación temprana: Aprendizaje informal en un estudio casero en Fram (desde los 6 a los 13 años), con un grupo de señoras adultas.",
+    "Otras experiencias formativas: Pasantía en galería FUGA centro (desde septiembre de 2025), que incluye apoyo a montajes y funcionamiento de exposiciones."
+  ],
+
+  // ----------------------------------------------------------
+  // 7. EXPOSICIONES
+  // ----------------------------------------------------------
+  exposicionesColectivas: [
+    "2023 – 'Cuerpos y Corporalidades' (exposición anual del ISA) – Asunción, Paraguay.",
+    "2024 – Seleccionado para la exposición del Premio Henri Matisse – Asunción, Paraguay.",
+    "2025 – Postulación no seleccionada para el Premio Elden Tefft (CCPA) – Asunción, Paraguay.",
+    "2026 – 'Jardín Interior' (exposición colectiva en FUGA centro, en conjunto con la Noche de las Galerías) – Asunción, Paraguay."
+  ],
+  exposicionesIndividuales: [],  // no tiene
+  feriasArte: [
+    "2025 – Ayudante de montaje en la Feria de arte Oxígeno (Asunción, Paraguay)"
+  ],
+
+  // ----------------------------------------------------------
+  // 8. PREMIOS, SELECCIONES Y MENCIONES
+  // ----------------------------------------------------------
+  premios: [],   // no declara ninguno (solo selección pero sin premio económico)
+
+  // ----------------------------------------------------------
+  // 9. OTRAS INFORMACIONES (publicaciones, prensa)
+  // ----------------------------------------------------------
+  publicacionesPrensa: "No cuenta con publicaciones en prensa aún.",
+
+  // ----------------------------------------------------------
+  // 10. ENTREVISTA EN VIDEO
+  // ----------------------------------------------------------
+  entrevistaDisponible: true,   // Sí
+
+  // ----------------------------------------------------------
+  // 11. ESPACIO DE ANUNCIO (proyectos activos, próximas exposiciones)
+  // ----------------------------------------------------------
+  espacioAnuncio: `Continúa su pasantía en FUGA centro durante 2026.
+En proceso de producción de nueva obra pictórica y sonora.`,
+
+  // ----------------------------------------------------------
+  // EXPERIENCIA EXTRA (no estaba en el listado pero la incluyo)
+  // ----------------------------------------------------------
+  experienciaExtra: [
+    "Ayudante de Damián Cabrera durante el montaje de la Feria Oxígeno (2025).",
+    "Composición de soundtrack para el cortometraje animado Bicho, presentado en el concurso de animación Jaguatá (2025).",
+    "Pasante en FUGA centro, apoyando las exposiciones: Expo Primavera y reapertura de FUGA centro (octubre 2025); 'VIAJE ALREDEDOR del DÍA' de Carolina Vinader (marzo-abril 2026); 'Jardín Interior' (mayo-julio 2026)."
+  ]
 };
 
-// Obras de Rafa (si las tienes; si no, array vacío)
-const obrasArtista = []; // Aquí puedes agregar las obras más adelante
+// ----------------------------------------------------------
+// OBRA (galería, series, destacadas, catálogo descargable)
+// ----------------------------------------------------------
+// TODO: Completar con las imágenes reales, títulos, años, técnicas, dimensiones
+const obrasArtista = [
+  {
+    slug: "esta-silla-esta-vacia",
+    data: {
+      titulo: "Esta silla está vacía",
+      ano: "2024",
+      tecnica: "Pintura (técnica no especificada)",
+      dimensiones: "",
+      imagen: "",  // ruta de la imagen
+      descripcion: "Obra seleccionada para el Premio Henri Matisse 2024.",
+      destacada: true,   // marcamos como destacada (por haber sido seleccionada)
+      serie: ""
+    }
+  },
+  {
+    slug: "sin-nombre-i",
+    data: {
+      titulo: "Sin nombre I (anteriormente 'Mamá')",
+      ano: "2025",
+      tecnica: "Pintura (técnica no especificada)",
+      dimensiones: "",
+      imagen: "",
+      descripcion: "Postulada al Premio Elden Tefft del CCPA 2025.",
+      destacada: false,
+      serie: ""
+    }
+  }
+  // Puedes seguir agregando más obras en este array
+];
+
+// Series o colecciones principales (si las tiene)
+const seriesColecciones = [];  // dejar vacío por ahora
+
+// Catálogo o portafolio descargable (ruta del PDF)
+const catalogoDescargable = "";  // ej: "/pdfs/rafael-denis-jara-portafolio.pdf"
 ---
 
-<BaseLayout title={`${artista.data.nombre} - Expositorio Voyeur`}>
+<BaseLayout title={`${artista.nombreCompleto} - Expositorio Voyeur`}>
   <div class="max-w-6xl mx-auto px-4 py-12">
     <div class="grid md:grid-cols-3 gap-10">
-      <!-- Columna izquierda -->
+      <!-- Columna izquierda (foto + contacto rápido) -->
       <div>
-        {artista.data.foto && (
-          <img src={artista.data.foto} alt={artista.data.nombre} class="w-full rounded-xl shadow" />
+        {artista.foto && (
+          <img src={artista.foto} alt={artista.nombreCompleto} class="w-full rounded-xl shadow" />
         )}
         <div class="mt-6 space-y-3 text-sm text-base-700">
-          {artista.data.fechaNacimiento && <p><span class="font-semibold">Nacimiento:</span> {artista.data.fechaNacimiento}</p>}
-          {artista.data.medio && <p><span class="font-semibold">Medio:</span> {artista.data.medio}</p>}
-          {artista.data.instagram && (
-            <p><span class="font-semibold">Instagram:</span> <a href={`https://instagram.com/${artista.data.instagram.replace('@','')}`} target="_blank" class="text-[#B70538] hover:underline">{artista.data.instagram}</a></p>
-          )}
-          {artista.data.email && (
-            <p><span class="font-semibold">Email:</span> <a href={`mailto:${artista.data.email}`} class="text-[#B70538] hover:underline">{artista.data.email}</a></p>
-          )}
-          {artista.data.entrevistaDisponible && (
-            <div class="mt-4 inline-block bg-[#B70538] text-white text-xs px-3 py-1 rounded-full">Entrevista disponible</div>
-          )}
+          <h3 class="font-bold text-lg">Contacto profesional</h3>
+          {artista.email && <p><span class="font-semibold">Email:</span> <a href={`mailto:${artista.email}`} class="text-[#B70538] hover:underline">{artista.email}</a></p>}
+          {artista.instagram && <p><span class="font-semibold">Instagram:</span> <a href={`https://instagram.com/${artista.instagram.replace('@','')}`} target="_blank" class="text-[#B70538] hover:underline">@{artista.instagram}</a></p>}
+          {artista.behance && <p><span class="font-semibold">Behance:</span> <a href={artista.behance} target="_blank" class="text-[#B70538] hover:underline">Ver perfil</a></p>}
+          {artista.linkedin && <p><span class="font-semibold">LinkedIn:</span> <a href={artista.linkedin} target="_blank" class="text-[#B70538] hover:underline">Perfil</a></p>}
+          {artista.web && <p><span class="font-semibold">Sitio web:</span> <a href={artista.web} target="_blank" class="text-[#B70538] hover:underline">{artista.web}</a></p>}
         </div>
       </div>
 
-      <!-- Columna derecha -->
+      <!-- Columna derecha (contenido completo) -->
       <div class="md:col-span-2">
-        <h1 class="text-4xl font-bold">{artista.data.nombre}</h1>
-        {artista.data.biografia && <p class="mt-4 text-base-700 italic">{artista.data.biografia}</p>}
-        {artista.data.biografiaLarga && (
-          <div class="prose max-w-none mt-6" set:html={artista.data.biografiaLarga.replace(/\n/g, '<br/>')} />
-        )}
+        <!-- Nombre -->
+        <h1 class="text-4xl font-bold">{artista.nombreCompleto}</h1>
+        {artista.nombreArtistico && <p class="text-lg text-base-500">Nombre artístico: {artista.nombreArtistico}</p>}
+        {artista.colectivo && <p class="text-sm text-base-500">Colectivo: {artista.colectivo}</p>}
 
-        {artista.data.premios && artista.data.premios.length > 0 && (
+        <!-- Palabras clave -->
+        <div class="mt-4 flex flex-wrap gap-2">
+          {artista.palabrasClave.split(',').map(p => (
+            <span class="bg-base-200 text-base-700 text-xs px-2 py-1 rounded-full">{p.trim()}</span>
+          ))}
+        </div>
+
+        <!-- Datos básicos en línea -->
+        <div class="grid grid-cols-2 gap-2 mt-6 text-sm border-t pt-4 border-base-200">
+          <div><span class="font-semibold">Fecha nac.:</span> {artista.fechaNacimiento}</div>
+          <div><span class="font-semibold">Lugar:</span> {artista.lugarNacimiento}</div>
+          <div><span class="font-semibold">Nacionalidad:</span> {artista.nacionalidad}</div>
+        </div>
+
+        <!-- Biografía y declaración -->
+        <h2 class="text-2xl font-semibold mt-8">Resumen biográfico</h2>
+        <div class="prose max-w-none mt-2" set:html={artista.resumenBiografico.replace(/\n/g, '<br/>')} />
+
+        <h2 class="text-2xl font-semibold mt-6">Declaración artística</h2>
+        <div class="prose max-w-none mt-2" set:html={artista.declaracionArtistica.replace(/\n/g, '<br/>')} />
+
+        <!-- Otros proyectos -->
+        {artista.otrosProyectos && (
           <>
-            <h2 class="text-2xl font-semibold mt-8">Premios y selecciones</h2>
-            <ul class="list-disc list-inside space-y-1">
-              {artista.data.premios.map(p => <li>{p}</li>)}
-            </ul>
+            <h2 class="text-2xl font-semibold mt-6">Otros proyectos</h2>
+            <div class="prose max-w-none mt-2" set:html={artista.otrosProyectos.replace(/\n/g, '<br/>')} />
           </>
         )}
 
-        {artista.data.participaciones && artista.data.participaciones.length > 0 && (
+        <!-- Formación -->
+        <h2 class="text-2xl font-semibold mt-6">Formación</h2>
+        <ul class="list-disc list-inside space-y-1 mt-2">
+          {artista.formacion.map(item => <li>{item}</li>)}
+        </ul>
+
+        <!-- Exposiciones -->
+        <h2 class="text-2xl font-semibold mt-6">Exposiciones</h2>
+        {artista.exposicionesIndividuales.length > 0 && (
           <>
-            <h2 class="text-2xl font-semibold mt-8">Exposiciones</h2>
-            <ul class="list-disc list-inside space-y-1">
-              {artista.data.participaciones.map(p => <li>{p}</li>)}
-            </ul>
+            <h3 class="text-xl font-medium mt-2">Individuales</h3>
+            <ul class="list-disc list-inside space-y-1"><li>{artista.exposicionesIndividuales.join('</li><li>')}</li></ul>
+          </>
+        )}
+        {artista.exposicionesColectivas.length > 0 && (
+          <>
+            <h3 class="text-xl font-medium mt-2">Colectivas</h3>
+            <ul class="list-disc list-inside space-y-1"><li>{artista.exposicionesColectivas.join('</li><li>')}</li></ul>
+          </>
+        )}
+        {artista.feriasArte.length > 0 && (
+          <>
+            <h3 class="text-xl font-medium mt-2">Ferias de arte</h3>
+            <ul class="list-disc list-inside space-y-1"><li>{artista.feriasArte.join('</li><li>')}</li></ul>
           </>
         )}
 
-        {artista.data.experienciaExtra && artista.data.experienciaExtra.length > 0 && (
+        <!-- Premios -->
+        {artista.premios.length > 0 && (
           <>
-            <h2 class="text-2xl font-semibold mt-8">Experiencia extra</h2>
-            <ul class="list-disc list-inside space-y-1">
-              {artista.data.experienciaExtra.map(e => <li>{e}</li>)}
-            </ul>
+            <h2 class="text-2xl font-semibold mt-6">Premios, selecciones y menciones</h2>
+            <ul class="list-disc list-inside space-y-1"><li>{artista.premios.join('</li><li>')}</li></ul>
           </>
         )}
 
-        <h2 class="text-2xl font-semibold mt-10 mb-6">Obras</h2>
-        {obrasArtista.length === 0 ? (
-          <p class="text-base-500">Próximamente obras de este artista.</p>
-        ) : (
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {obrasArtista.map(obra => (
-              <a href={`/obras/${obra.slug}`} class="group bg-base-100 rounded-lg border border-base-200 p-4 hover:shadow transition">
-                {obra.data.imagen && <img src={obra.data.imagen} class="w-full h-48 object-cover rounded mb-3" />}
-                <h3 class="font-bold text-lg">{obra.data.titulo}</h3>
-                <p class="text-sm text-base-500">{obra.data.ano} · {obra.data.tecnica}</p>
-                {obra.data.descripcion && <p class="text-sm mt-2">{obra.data.descripcion}</p>}
-              </a>
-            ))}
+        <!-- Experiencia extra -->
+        {artista.experienciaExtra.length > 0 && (
+          <>
+            <h2 class="text-2xl font-semibold mt-6">Experiencia profesional / formativa extra</h2>
+            <ul class="list-disc list-inside space-y-1"><li>{artista.experienciaExtra.join('</li><li>')}</li></ul>
+          </>
+        )}
+
+        <!-- Otras informaciones (prensa) -->
+        <h2 class="text-2xl font-semibold mt-6">Publicaciones y prensa</h2>
+        <p class="mt-2">{artista.publicacionesPrensa}</p>
+
+        <!-- Entrevista -->
+        <div class="mt-8">
+          {artista.entrevistaDisponible ? (
+            <span class="bg-[#B70538] text-white text-sm px-3 py-1 rounded-full">✓ Entrevista en video disponible</span>
+          ) : (
+            <span class="bg-base-300 text-base-700 text-sm px-3 py-1 rounded-full">✗ No disponible para entrevista</span>
+          )}
+        </div>
+
+        <!-- Espacio de anuncio -->
+        <h2 class="text-2xl font-semibold mt-8">Proyectos activos y próximas exposiciones</h2>
+        <div class="prose max-w-none mt-2" set:html={artista.espacioAnuncio.replace(/\n/g, '<br/>')} />
+
+        <!-- ==================== SECCIÓN OBRA ==================== -->
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Obras</h2>
+
+        <!-- Galería de imágenes ordenadas por fecha (más reciente primero) -->
+        <div class="space-y-10">
+          <!-- Filtros (simulados, para que el usuario pueda luego implementar) -->
+          <div class="flex gap-3 text-sm">
+            <span class="font-semibold">Filtrar por:</span>
+            <button class="text-[#B70538] underline">Todas</button>
+            <button class="hover:underline">Pintura</button>
+            <button class="hover:underline">Collage</button>
+            <button class="hover:underline">Sonido</button>
           </div>
-        )}
+
+          <!-- Listado de obras (galería) -->
+          {obrasArtista.length === 0 ? (
+            <p class="text-base-500">Próximamente se mostrarán las obras.</p>
+          ) : (
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {obrasArtista
+                .sort((a,b) => (b.data.ano || 0) - (a.data.ano || 0)) // orden por año descendente
+                .map(obra => (
+                  <div class="border rounded-lg p-4 hover:shadow transition">
+                    {obra.data.imagen && <img src={obra.data.imagen} class="w-full h-48 object-cover rounded mb-3" />}
+                    <h3 class="font-bold text-lg">{obra.data.titulo}</h3>
+                    <p class="text-sm text-base-500">{obra.data.ano} · {obra.data.tecnica}</p>
+                    {obra.data.dimensiones && <p class="text-xs text-base-400">{obra.data.dimensiones}</p>}
+                    {obra.data.descripcion && <p class="text-sm mt-2">{obra.data.descripcion}</p>}
+                    {obra.data.destacada && <span class="inline-block mt-2 text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">Destacada</span>}
+                  </div>
+                ))}
+            </div>
+          )}
+
+          <!-- Series o colecciones principales -->
+          {seriesColecciones.length > 0 && (
+            <>
+              <h3 class="text-xl font-semibold mt-8">Series o colecciones principales</h3>
+              <ul class="list-disc list-inside">
+                {seriesColecciones.map(serie => <li>{serie}</li>)}
+              </ul>
+            </>
+          )}
+
+          <!-- Catálogo o portafolio descargable -->
+          {catalogoDescargable && (
+            <div class="mt-6">
+              <a href={catalogoDescargable} download class="inline-block bg-[#B70538] text-white px-4 py-2 rounded hover:bg-[#8f042b] transition">
+                📥 Descargar portafolio / catálogo
+              </a>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   </div>
 </BaseLayout>
+
