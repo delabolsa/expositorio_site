@@ -117,22 +117,22 @@ const catalogoDescargable = "";
         <div class="mt-6 bg-[#B70538] text-white rounded-xl shadow-md p-5 space-y-3 text-sm">
           <h3 class="font-bold text-base uppercase tracking-wide border-b border-white/30 pb-1 mb-2">Contacto y datos</h3>
           
-          <p><span class="font-semibold">📅 Nacimiento:</span> {artista.fechaNacimiento}</p>
-          <p><span class="font-semibold">📍 Lugar:</span> {artista.lugarNacimiento}</p>
-          <p><span class="font-semibold">🏠 Residencia actual:</span> {artista.residenciaActual}</p>
-          <p><span class="font-semibold">🌎 Nacionalidad:</span> {artista.nacionalidad}</p>
+          <p><span class="font-semibold">Nacimiento:</span> {artista.fechaNacimiento}</p>
+          <p><span class="font-semibold">Lugar:</span> {artista.lugarNacimiento}</p>
+          <p><span class="font-semibold">Residencia actual:</span> {artista.residenciaActual}</p>
+          <p><span class="font-semibold">Nacionalidad:</span> {artista.nacionalidad}</p>
           <hr class="border-white/20 my-2" />
-          <p><span class="font-semibold">📧 Email:</span> <a href={`mailto:${artista.email}`} class="underline hover:text-gray-200 break-all">{artista.email}</a></p>
-          <p><span class="font-semibold">📸 Instagram:</span> <a href={`https://instagram.com/${artista.instagram.replace('@','')}`} target="_blank" class="underline hover:text-gray-200">@{artista.instagram}</a></p>
-          {artista.behance && <p><span class="font-semibold">🎨 Behance:</span> <a href={artista.behance} target="_blank" class="underline">Ver perfil</a></p>}
-          {artista.linkedin && <p><span class="font-semibold">🔗 LinkedIn:</span> <a href={artista.linkedin} target="_blank" class="underline">Perfil</a></p>}
-          {artista.web && <p><span class="font-semibold">🌐 Web:</span> <a href={artista.web} target="_blank" class="underline">{artista.web}</a></p>}
+          <p><span class="font-semibold">Email:</span> <a href={`mailto:${artista.email}`} class="underline hover:text-gray-200 break-all">{artista.email}</a></p>
+          <p><span class="font-semibold">Instagram:</span> <a href={`https://instagram.com/${artista.instagram.replace('@','')}`} target="_blank" class="underline hover:text-gray-200">@{artista.instagram}</a></p>
+          {artista.behance && <p><span class="font-semibold">Behance:</span> <a href={artista.behance} target="_blank" class="underline">Ver perfil</a></p>}
+          {artista.linkedin && <p><span class="font-semibold">LinkedIn:</span> <a href={artista.linkedin} target="_blank" class="underline">Perfil</a></p>}
+          {artista.web && <p><span class="font-semibold">Web:</span> <a href={artista.web} target="_blank" class="underline">{artista.web}</a></p>}
         </div>
 
         <!-- Indicador de entrevista disponible (opcional, puede ir dentro del recuadro o fuera) -->
         {artista.entrevistaDisponible && (
           <div class="mt-4 text-center">
-            <span class="bg-white text-[#B70538] text-xs font-bold px-3 py-1 rounded-full border border-[#B70538] shadow-sm">🎥 Entrevista en video disponible</span>
+            <span class="bg-white text-[#B70538] text-xs font-bold px-3 py-1 rounded-full border border-[#B70538] shadow-sm">🎥 Entrevista en video proximamente</span>
           </div>
         )}
       </div>
