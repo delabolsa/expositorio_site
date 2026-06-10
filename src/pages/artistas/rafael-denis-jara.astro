@@ -6,7 +6,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 // ============================================================
 const artista = {
   slug: "rafael-denis-jara",
-  foto: "artistas/rafael-denis-jara.jpg",  // <-- PONER RUTA CUANDO TENGAS LA FOTO (ej: "/artistas/rafael.jpg")
+  foto: "artistas/rafael-denis-jara.jpg",  // <-- PONER RUTA CUANDO TENGAS LA FOTO
 
   // Palabras clave
   palabrasClave: "Pintura, collage, intervención digital, redacción crítica, trabajo de sonido, vínculos sociales, nostalgia, vida urbana, mirada queer, juvenil, proletaria, referencias: Leti Casati, Hugo Cataldo",
@@ -25,7 +25,7 @@ const artista = {
   fechaNacimiento: "23/02/2004",
   lugarNacimiento: "Fram, Departamento de Itapúa, Paraguay",
   nacionalidad: "Paraguayo",
-  residenciaActual: "Asunción, Paraguay",   // Nuevo campo
+  residenciaActual: "Asunción, Paraguay",
 
   // Biografía y declaración
   resumenBiografico: `Rafael Denis Jara creció en la ciudad de Fram, en el interior de Paraguay, donde comenzó a pintar desde los 6 años en un estudio casero junto a un grupo de señoras mayores. A los 14 años se mudó a Asunción para terminar sus estudios secundarios y luego ingresar a la Universidad Nacional de Asunción, lo que puso en pausa su desarrollo técnico durante aproximadamente cuatro años. Actualmente cursa la carrera de Artes Visuales en el Instituto Superior de Arte (ISA) – UNA.
@@ -129,7 +129,7 @@ const catalogoDescargable = "";
           {artista.web && <p><span class="font-semibold">Web</span> <a href={artista.web} target="_blank" class="underline">{artista.web}</a></p>}
         </div>
 
-        <!-- Indicador de entrevista disponible (opcional, puede ir dentro del recuadro o fuera) -->
+        <!-- Indicador de entrevista disponible -->
         {artista.entrevistaDisponible && (
           <div class="mt-4 text-center">
             <span class="bg-white text-[#B70538] text-xs font-bold px-3 py-1 rounded-full border border-[#B70538] shadow-sm">🎥 Entrevista en video proximamente</span>
@@ -176,19 +176,25 @@ const catalogoDescargable = "";
         {artista.exposicionesIndividuales.length > 0 && (
           <>
             <h3 class="text-xl font-medium mt-2">Individuales</h3>
-            <ul class="list-disc list-inside space-y-1"><li>{artista.exposicionesIndividuales.join('</li><li>')}</li></ul>
+            <ul class="list-disc list-inside space-y-1">
+              {artista.exposicionesIndividuales.map(item => <li>{item}</li>)}
+            </ul>
           </>
         )}
         {artista.exposicionesColectivas.length > 0 && (
           <>
             <h3 class="text-xl font-medium mt-2">Colectivas</h3>
-            <ul class="list-disc list-inside space-y-1"><li>{artista.exposicionesColectivas.join('</li><li>')}</li></ul>
+            <ul class="list-disc list-inside space-y-1">
+              {artista.exposicionesColectivas.map(item => <li>{item}</li>)}
+            </ul>
           </>
         )}
         {artista.feriasArte.length > 0 && (
           <>
             <h3 class="text-xl font-medium mt-2">Ferias de arte</h3>
-            <ul class="list-disc list-inside space-y-1"><li>{artista.feriasArte.join('</li><li>')}</li></ul>
+            <ul class="list-disc list-inside space-y-1">
+              {artista.feriasArte.map(item => <li>{item}</li>)}
+            </ul>
           </>
         )}
 
@@ -196,7 +202,9 @@ const catalogoDescargable = "";
         {artista.premios.length > 0 && (
           <>
             <h2 class="text-2xl font-semibold mt-6">Premios, selecciones y menciones</h2>
-            <ul class="list-disc list-inside space-y-1"><li>{artista.premios.join('</li><li>')}</li></ul>
+            <ul class="list-disc list-inside space-y-1">
+              {artista.premios.map(item => <li>{item}</li>)}
+            </ul>
           </>
         )}
 
@@ -204,7 +212,9 @@ const catalogoDescargable = "";
         {artista.experienciaExtra.length > 0 && (
           <>
             <h2 class="text-2xl font-semibold mt-6">Experiencia profesional / formativa extra</h2>
-            <ul class="list-disc list-inside space-y-1"><li>{artista.experienciaExtra.join('</li><li>')}</li></ul>
+            <ul class="list-disc list-inside space-y-1">
+              {artista.experienciaExtra.map(item => <li>{item}</li>)}
+            </ul>
           </>
         )}
 
@@ -240,13 +250,15 @@ const catalogoDescargable = "";
           {seriesColecciones.length > 0 && (
             <>
               <h3 class="text-xl font-semibold mt-6">Series o colecciones principales</h3>
-              <ul class="list-disc list-inside">{seriesColecciones.map(s => <li>{s}</li>)}</ul>
+              <ul class="list-disc list-inside">
+                {seriesColecciones.map(s => <li>{s}</li>)}
+              </ul>
             </>
           )}
           {catalogoDescargable && (
             <div class="mt-4">
               <a href={catalogoDescargable} download class="inline-block bg-[#B70538] text-white px-4 py-2 rounded hover:bg-[#8f042b] transition">
-                📥 Descargar portafolio / catálogo
+                Descargar portafolio / catálogo
               </a>
             </div>
           )}
