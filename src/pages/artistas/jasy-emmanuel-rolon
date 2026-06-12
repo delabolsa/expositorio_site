@@ -1,0 +1,111 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const artista = {
+  slug: "jasy-emmanuel-rolon",
+  foto: "/artistas/Jasy-Emmanuel-Rolon-Rolon.jpg",
+  palabrasClave: "Grabado, cubismo, abstracto, intimista, poesía",
+  pronombres: "Ella/Elle",
+  email: "jasyrolon@outlook.com",
+  telefono: "0984749900",
+  instagram: "@_j4syy_",
+  nombreCompleto: "Jasy Emmanuel Rolón Rolón",
+  fechaNacimiento: "02/04/2002",
+  lugarNacimiento: "Ciudad del Este, Paraguay",
+  residenciaActual: "Asunción, Paraguay",
+  nacionalidad: "Paraguaya",
+  resumenBiografico: `Nació y se crió en Ciudad del Este. Desde la infancia dibujaba constantemente. En 2018, mientras vivía en Curitiba, Brasil, comenzó a usar el arte como método de expresión (poesía, dibujo, fotografía). Actualmente utiliza el grabado como principal medio para sus obras.`,
+  declaracionArtistica: `Le interesa explorar lo abstracto y lo cubista, especialmente en el contexto actual dominado por la IA. También trabaja lo intimista, narrando su propia historia en sus obras.`,
+  otrosProyectos: "Escribe poesía y la publica en su perfil de Instagram.",
+  formacion: [
+    "Actualmente cursa la carrera de Artes Visuales en el ISA / FADA / Universidad Nacional de Asunción (UNA)."
+  ],
+  exposicionesIndividuales: [],
+  exposicionesColectivas: [],
+  feriasArte: [],
+  premios: [],
+  publicacionesPrensa: "Realizó ilustraciones para un libro (aún no publicado).",
+  entrevistaDisponible: true,
+  espacioAnuncio: "Actualmente no trabaja en ningún proyecto aparte de su Trabajo Final de Grado (TFG), que es creación de obra.",
+  experienciaExtra: []
+};
+
+const obrasArtista = [];
+---
+
+<BaseLayout title={`${artista.nombreCompleto} - Expositorio Voyeur`}>
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-3 gap-10">
+      <!-- Columna izquierda -->
+      <div>
+        {artista.foto && (
+          <img src={artista.foto} alt={artista.nombreCompleto} class="w-full rounded-xl shadow" />
+        )}
+        
+        <div class="mt-6 bg-[#B70538] text-white rounded-xl shadow-md p-5 space-y-3 text-sm">
+          <h3 class="font-bold text-base uppercase tracking-wide border-b border-white/30 pb-1 mb-2">Contacto y datos</h3>
+          <p><span class="font-semibold">Nacimiento</span> {artista.fechaNacimiento}</p>
+          <p><span class="font-semibold">Lugar</span> {artista.lugarNacimiento}</p>
+          <p><span class="font-semibold">Residencia</span> {artista.residenciaActual}</p>
+          <p><span class="font-semibold">Nacionalidad</span> {artista.nacionalidad}</p>
+          <p><span class="font-semibold">Pronombres</span> {artista.pronombres}</p>
+          <hr class="border-white/20 my-2" />
+          <p><span class="font-semibold">Email</span> <a href={`mailto:${artista.email}`} class="underline hover:text-gray-200 break-all">{artista.email}</a></p>
+          {artista.telefono && <p><span class="font-semibold">Teléfono</span> {artista.telefono}</p>}
+          <p><span class="font-semibold">Instagram</span> <a href={`https://instagram.com/${artista.instagram.replace('@','')}`} target="_blank" class="underline hover:text-gray-200">{artista.instagram}</a></p>
+        </div>
+
+        {artista.entrevistaDisponible && (
+          <div class="mt-4 text-center">
+            <span class="bg-white text-[#B70538] text-xs font-bold px-3 py-1 rounded-full border border-[#B70538] shadow-sm">🎥 Entrevista en video disponible</span>
+          </div>
+        )}
+      </div>
+
+      <!-- Columna derecha -->
+      <div class="md:col-span-2">
+        <h1 class="text-4xl font-bold">{artista.nombreCompleto}</h1>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {artista.palabrasClave.split(',').map(p => (
+            <span class="bg-base-200 text-base-700 text-xs px-2 py-1 rounded-full">{p.trim()}</span>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8">Resumen biográfico</h2>
+        <div class="prose max-w-none mt-2" set:html={artista.resumenBiografico.replace(/\n/g, '<br/>')} />
+
+        <h2 class="text-2xl font-semibold mt-6">Declaración artística</h2>
+        <div class="prose max-w-none mt-2" set:html={artista.declaracionArtistica.replace(/\n/g, '<br/>')} />
+
+        {artista.otrosProyectos && (
+          <>
+            <h2 class="text-2xl font-semibold mt-6">Otros proyectos</h2>
+            <div class="prose max-w-none mt-2" set:html={artista.otrosProyectos.replace(/\n/g, '<br/>')} />
+          </>
+        )}
+
+        <h2 class="text-2xl font-semibold mt-6">Formación</h2>
+        <ul class="list-disc list-inside space-y-1 mt-2">
+          {artista.formacion.map(item => <li>{item}</li>)}
+        </ul>
+
+        <h2 class="text-2xl font-semibold mt-6">Exposiciones</h2>
+        {artista.exposicionesIndividuales.length === 0 && artista.exposicionesColectivas.length === 0 && (
+          <p class="text-base-500">No registra exposiciones hasta el momento.</p>
+        )}
+
+        <h2 class="text-2xl font-semibold mt-6">Premios y selecciones</h2>
+        {artista.premios.length === 0 && <p class="text-base-500">Ninguno registrado.</p>}
+
+        <h2 class="text-2xl font-semibold mt-6">Publicaciones y prensa</h2>
+        <p class="mt-2">{artista.publicacionesPrensa}</p>
+
+        <h2 class="text-2xl font-semibold mt-8">Proyectos activos y próximas exposiciones</h2>
+        <div class="prose max-w-none mt-2" set:html={(artista.espacioAnuncio || "Por actualizar.").replace(/\n/g, '<br/>')} />
+
+        <h2 class="text-2xl font-semibold mt-10 mb-4">Obras</h2>
+        <p class="text-base-500">Próximamente se mostrarán las obras.</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
