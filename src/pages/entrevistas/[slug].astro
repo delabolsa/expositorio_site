@@ -1,1 +1,105 @@
+---
+import { getCollection, render } from "astro:content";
+import MarkdownPostLayout from "../../layouts/BlogLayout.astro";
 
+export async function getStaticPaths() {
+  const interviewEntries = await getCollection("interviews");
+  return interviewEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<MarkdownPostLayout frontmatter={entry.data}>
+  <div class="interview-container">
+    <div class="video-wrapper">
+      <iframe
+        src={entry.data.videoUrl}
+        title={entry.data.title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <div class="interview-meta">
+      <p class="interviewee">
+        <strong>Entrevistado:</strong> {entry.data.interviewee}
+      </p>
+      <p class="author">
+        <strong>Por:</strong> {entry.data.author}
+      </p>
+      <p class="date">
+        <strong>Fecha:</strong> {new Date(entry.data.pubDate).toLocaleDateString('es-ES')}
+      </p>
+    </div>
+
+    <div class="interview-content">
+      <Content />
+    </div>
+
+    <a href="/entrevistas" class="back-link">← Volver a entrevistas</a>
+  </div>
+</MarkdownPostLayout>
+
+<style>
+  .interview-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .interview-meta {
+    background: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .interview-meta p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  .interviewee {
+    color: #0066cc;
+  }
+
+  .interview-content {
+    margin: 2rem 0;
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: #0066cc;
+    text-decoration: none;
+    margin-top: 2rem;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+</style>
