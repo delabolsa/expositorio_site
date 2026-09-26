@@ -14,6 +14,41 @@ tags:
   - Entrevista
 ---
 
+
+
+
+
+Presentación
+
+Soy Rafael Denis. Tengo veintidós años. Ejerzo principalmente como artista, por así decirlo. Yo pinto más con acrílico como tal, verdad. Expongo en galería actualmente y también tengo un proyecto aparte que vendría siendo un proyecto musical, el cual es conocido como RafaHeartsDomo. Entonces, aparezco tanto como Rafael Denis Jara, que es mi nombre completo, y también como RafaHeartsDomo en otra escena.
+
+¿Cómo iniciaste en el arte? 
+
+Desde chico me gustaba dibujar, me gustaba mucho jugar con los lápices de colores, entonces es algo que mi mamá notó y desde los seis años más o menos que me mandó a un estudio de pintura en el cual estuve hasta que cumplí más o menos trece, en el que yo me iba y pintaba lo que yo quería, así con un grupo de señoras y no es como que se me enseñaba algo como tal, sino que me mostraban, por ejemplo, bueno, como ellas por ejemplo tenían estas imágenes en las revistas, querían calcar, verdad. Toda esa clase de técnicas sí se me enseñó, pero al momento de trabajar el lienzo, por ejemplo, era totalmente libre. Ahí pasé por el óleo, pasé por el acrílico y por todas las técnicas más clásicas. Sí, las trabajé en ese estudio, en el interior, ahí en Itapúa, con las señoras. Y más adelante, cuando cumplí así un periodo como que en el que tenía como catorce, quince, que me mudé acá al Central para terminar mis estudios, en lo que como que eso puse en pausa, puse todos mis intereses en pausa y nuevamente retomé al ingresar en la facultad, porque al momento de elegir mi carrera es como que bueno, ¿qué me gusta hacer? Es lo que me pregunté, verdad. Y no, no tuve consideración por ningún otro rubro y es como me enteré que había la carrera de Artes Visuales acá en el ISA y me inscribí. Pero desde entonces retomé nuevamente lo que sería la pintura, más del segundo semestre cuando me tocó cursar Pintura tres y cuatro con Leticia Casati, es que volví a agarrarle un gusto a la pintura. No es como que algo que empecé a odiar o que me disgustaba, sino que no tenía nomás un incentivo como para trabajar. No es por medio de estas clases, estos dos semestres que así retomé nuevamente a full y desde entonces es como que he producido la mayor parte de mis trabajos que presento, verdad. También es como que eso fue en el dos mil veinticuatro y nada, desde entonces me he mantenido así. Igual, digamos, he estado trabajando principalmente con la pintura, por más de que he probado con otras técnicas que fueron así traídas, digamos, a mi conocimiento desde la facultad, como lo sería la instalación y la fotografía, que si bien no es algo que hago muy seguido, es algo que quiero retomar. 
+
+¿Cuál es tu búsqueda, haciendo lo que haces?
+
+Me gusta mucho lo que sería la representación del cotidiano, verdad. Yo cuando produzco ahora me pregunto, bueno, ¿desde dónde me estoy enunciando? Básicamente, verdad.  Y en lo que resulta son en pinturas que siguen siendo figurativas, pero es como que yo tomo estas imágenes y las uso de recurso poético para representar. Por ejemplo, no sé, lo que estoy pasando en el momento o algo que simplemente yo quiero denunciar. Y lo que me he dado cuenta, por ejemplo, es que a mí me gusta mucho representar la cuestión personal humana, pero no me gusta representarlo de manera directa, física, a la persona, sino más bien algo que te remita a ella, como lo serían los objetos personales. Y son estos los que yo tomo como recurso poético visual, por así decirlo. Entonces, básicamente tengo por ejemplo esta idea: me estoy sintiendo de esta manera o hay como por ejemplo un disparador así inicial, tipo me siento triste, siento envidia, entonces tipo llevo eso y bueno, lo que hago también es como salir en caminatas así regulares cerca de mi casa o cada vez que estoy, por ejemplo, por el centro. Es como, bueno, yo tomo foto de todo lo que me gustaría usar de referencia. Entonces también tipo todas estas imágenes, su punto de partida otra vez son producción mía, nada más que las llevo como a la técnica de mi preferencia, que es la pintura en acrílico. También trabajo en óleo, pero me gusta más el acrílico porque funciona mejor con mi forma de trabajo. Más que nada, no una decisión ya más profunda. 
+
+¿En qué estás trabajando ahora? 
+
+Sigo como en una pausa en el tema de las postulaciones a premios o ferias, pero aun así no significa que yo deje de producir, sino que estoy tratando de construir una línea de trabajo antes de volver a animarme a lanzar las cosas, porque quizá el trabajo era bueno, pero también tenía mucho que ver con suerte, creo yo. El hecho de que se me seleccionaron, veinticuatro, no es por desmeritar, pero sí tengo como una mentalidad más distinta y más relajada al momento de postularme para premios. En la actualidad estoy exponiendo en Fuga Centro, estoy exponiendo las últimas dos muestras colectivas y lo que sigue más adelante es, bueno, como soy pasante, sé que las siguientes muestras no van a ser colectivas y no voy a estar participando, verdad. Entonces, bueno, si bien hay una pausa en el tema de mostrar mi trabajo en estos espacios, mi plan es seguir construyendo esta línea de trabajo, seguir produciendo pinturas, seguir tanteando mi trabajo a otros espacios como lo serían cuatro en el centro. Es una cuestión de simplemente hacer qué es lo que voy a hacer, por lo menos en la parte de artes visuales producir, producir, pero no producir así un sentido capitalista de, bueno, necesito hacer trabajo toda la hora, sino simplemente construir como una especie de forma de trabajar. No en el sentido de que, bueno, voy a hacer obra de arte porque yo quiero, pero también porque tengo que verla y así tener como una pila de trabajo que me permita nuevamente volver a animarme y pulirme para el año que viene. Por ejemplo, quiero. No me quiero perder Oxígeno, no me quiero perder de Matisse y de todo lo que surja. El TEF, por ejemplo. El CPA también es algo que tengo en mente y en contraparte también. 2 O sea, por otro lado, también tengo mi proyecto musical, que es algo que vengo trabajando desde el año pasado, que ya venía desde antes, pero como RafaHeartsDomo desde el año pasado, desde la segunda mitad, en el que saqué un EP primero y a inicios de este año, en febrero, el catorce de febrero, yo saqué mi sencillo, mi primer sencillo digital que se llama “Bite Me.”. Entonces también al mismo tiempo en el que estoy trabajando con las cosas artísticas, estoy trabajando con las cosas de RafaHeartsDomo, que sería la parte de música, y lo que se puede esperar es que, por ejemplo, para octubre de este año tengo pensado sacar otro sencillo, quizás cerrar el año con un EP y el año que viene expandir nomás en este proyecto musical sin cerrarme a la colaboración con otras personas, verdad.
+
+Cierre
+
+Todo esto que comenté, verdad, si les interesa, por ejemplo, observar más de mi obra, tanto en las artes visuales como en música, y eso estaría todo disponible en la web Expiatorio. 
+
+
+Para conocer más le preguntamos:
+
+
+¿Cómo inicias en el arte?
+¿Cuál es tu búsqueda, haciendo lo que haces?
+¿En qué estás trabajando ahora?
+
+Rafael Denis Jara | Expiatorio 01
+Artista visual y músico
+
 ## Mirá su perfil
 
 ### Obras
