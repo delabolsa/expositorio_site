@@ -33,11 +33,14 @@ Visitá el canal en Youtube para ver más.
             {sortedInterviews.map((interview) => (
               <article class="border border-gray-200 rounded-lg overflow-hidden shadow-md">
                 <div class="relative h-48 overflow-hidden bg-gray-100">
-                  <img 
-                    src={interview.data.image.url} 
-                    alt={interview.data.image.alt}
-                    class="w-full h-full object-cover"
-                  />
+                  {interview.data.image.url && (
+                    <img 
+                      src={interview.data.image.url} 
+                      alt={interview.data.image.alt}
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  )}
                   <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0">
                     <span class="text-white text-3xl opacity-0">▶</span>
                   </div>
