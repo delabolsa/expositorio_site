@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const interviews = await getCollection("interviews");
+const sorted = interviews.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
+---
+
+<BaseLayout title="Entrevistas">
+  <div class="max-w-7xl mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold mb-4">Entrevistas</h1>
+    <p class="text-gray-600 mb-8">Conversaciones, historias y perspectivas</p>
+    
+    {sorted.length === 0 && <p>No hay entrevistas aún.</p>}
+    
+    {sorted.length > 0 && (
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {sorted.map((item) => (
+          <div class="border rounded-lg overflow-hidden">
+            <img src={item.data.image.url} alt={item.data.image.alt} class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h2 class="text-lg font-bold"><a href={`/entrevistas/${item.id}`}>{item.data.title}</a></h2>
+              <p class="text-sm text-gray-600">Con: {item.data.interviewee}</p>
+              <p class="text-xs text-gray-500">{new Date(item.data.pubDate).toLocaleDateString('es-ES')}</p>
+              <p class="my-2">{item.data.description}</p>
+              <a href={`/entrevistas/${item.id}`}>Ver más</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>
