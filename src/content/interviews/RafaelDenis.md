@@ -8,7 +8,7 @@ author: Lucas Vega
 interviewee: Rafael Denis Jara
 videoUrl: https://www.youtube.com/watch?v=pBA34B1Xq-A&t=107s
 image:
-  url:/portadaentrevista/Slide 16_9 - 4.png
+  url:public/portadaentrevista/Rafa.jpg
   alt: Rafael Denis Jara
 tags:
   - Poetica
