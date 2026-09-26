@@ -2,6 +2,8 @@
 title: «Me siento triste, siento envidia... y llevo eso al lienzo.»
 pubDate: 2026-09-26
 description: Inició a temprana edad desde una practica inocente, posteriormente asume una busqueda poetica en lo cotidiano 
+
+
 author: Lucas Vega
 interviewee: Rafael Denis Jara
 videoUrl: https://www.youtube.com/watch?v=pBA34B1Xq-A&t=107s
