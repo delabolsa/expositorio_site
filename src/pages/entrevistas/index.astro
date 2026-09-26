@@ -9,7 +9,7 @@ const sorted = interviews.sort((a, b) => new Date(b.data.pubDate) - new Date(a.d
 <BaseLayout title="Entrevistas">
   <div class="max-w-7xl mx-auto px-4 py-16">
     <h1 class="text-4xl font-bold mb-4">Entrevistas</h1>
-    <p class="text-gray-600 mb-8">Conversaciones, historias y perspectivas</p>
+    <p class="text-gray-600 mb-8">Conocé un poco más a estos artistas, quienes se dejaron entrever en una serie de preguntas, las cuales son: ¿Cómo iniciaste en el arte? ¿Cuál es tu búsqueda haciendo lo que haces? ¿En qué estás trabajando ahora?. </p>
     
     {sorted.length === 0 && <p>No hay entrevistas aún.</p>}
     
