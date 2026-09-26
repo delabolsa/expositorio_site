@@ -4,7 +4,7 @@ pubDate: 2026-09-26
 description: Inició a temprana edad desde una practica inocente, posteriormente asume una busqueda poetica en lo cotidiano 
 author: Lucas Vega
 interviewee: Rafael Denis Jara
-videoUrl: <iframe width="683" height="384" src="https://www.youtube.com/embed/pBA34B1Xq-A" title="¿Desde dónde me estoy enunciando? Rafael Denis | Expiatorio #1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+videoUrl: https://www.youtube.com/watch?v=pBA34B1Xq-A&t=107s
 image:
   url: https://github.com/delabolsa/expositorio_site/blob/main/public/portadaentrevista/Slide%2016_9%20-%204.png?raw=true
   alt: Rafael Denis Jara
