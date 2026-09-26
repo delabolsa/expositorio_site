@@ -8,7 +8,7 @@ author: Lucas Vega
 interviewee: Rafael Denis Jara
 videoUrl: https://www.youtube.com/watch?v=pBA34B1Xq-A&t=107s
 image:
-  url: https://github.com/delabolsa/expositorio_site/blob/main/public/portadaentrevista/Slide%2016_9%20-%204.png?raw=true
+  url:/portadaentrevista/Slide 16_9 - 4.png
   alt: Rafael Denis Jara
 tags:
   - Poetica
