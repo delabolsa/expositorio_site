@@ -6,7 +6,7 @@ description: Inició a temprana edad desde una practica inocente, posteriormente
 
 author: Lucas Vega
 interviewee: Rafael Denis Jara
-videoUrl: https://www.youtube.com/watch?v=pBA34B1Xq-A&t=107s
+videoUrl: https://www.youtube.com/embed/pBA34B1Xq-A
 image:
   url: /portadaentrevista/rafaportada.png
   alt: Rafael Denis Jara
