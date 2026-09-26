@@ -27,8 +27,9 @@ const interviewsCollection = defineCollection({
     interviewee: z.string(),
     videoUrl: z.string().url(),
     image: z.object({
-      url: z.string().url(),
-      alt: z.string(),
+  url: z.string().url(),
+  alt: z.string(),
+}).optional(),
     }),
     tags: z.array(z.string()).optional(),
   }),
