@@ -20,20 +20,18 @@ const postsCollection = defineCollection({
 const interviewsCollection = defineCollection({
   loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/interviews" }),
   schema: z.object({
-    title: z.string(),
-    pubDate: z.coerce.date(),
-    description: z.string(),
-    author: z.string(),
-    interviewee: z.string(),
-    videoUrl: z.string().url(),
-    image: z.object({
-  url: z.string().url(),
-  alt: z.string(),
-}).optional(),
-    }),
-    tags: z.array(z.string()).optional(),
-  }),
-});
+  title: z.string(),
+  pubDate: z.coerce.date(),
+  description: z.string(),
+  author: z.string(),
+  interviewee: z.string(),
+  videoUrl: z.string().url(),
+  image: z.object({
+    url: z.string().url(),
+    alt: z.string(),
+  }).optional(),
+  tags: z.array(z.string()).optional(),
+}),
 
 export const collections = {
   posts: postsCollection,
