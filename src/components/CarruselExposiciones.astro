@@ -42,13 +42,17 @@ const exposiciones = [
       >
         {exposiciones.map((expo) => (
           <div class="min-w-full flex-shrink-0">
-            <!-- El contenedor fuerzo el ratio 16:9 estricto (aspect-video) -->
-            <a href={expo.link} class="block relative w-full aspect-video rounded-xl overflow-hidden bg-black/5">
+            <!-- Marco bloqueado estrictamente a ratio 16:9 (1920x1080) -->
+            <a 
+              href={expo.link} 
+              class="block relative w-full aspect-video rounded-xl overflow-hidden bg-black/5"
+              style="aspect-ratio: 16 / 9;"
+            >
               {expo.imagen ? (
                 <img
                   src={expo.imagen}
                   alt={expo.titulo}
-                  class="w-full h-full object-contain rounded-xl"
+                  class="w-full h-full object-contain rounded-xl block"
                   loading="lazy"
                 />
               ) : (
