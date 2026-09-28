@@ -9,16 +9,16 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  image: {
+    domains: ["images.unsplash.com"],
+  },
   markdown: {
     drafts: true,
     shikiConfig: {
-      theme: "css-variables"
+      theme: "css-variables",
+      wrap: true,
+      skipInline: false,
     }
-  },
-  shikiConfig: {
-    wrap: true,
-    skipInline: false,
-    drafts: true
   },
   site: 'https://expiatoriovoyeur.com',
   integrations: [sitemap(), mdx()],
