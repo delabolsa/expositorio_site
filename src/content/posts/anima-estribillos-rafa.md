@@ -3,6 +3,7 @@ title: La destrucción y reconstrucción de uno mismo. Impresiones de la exposic
 pubDate: 2026-09-28
 description: Este es un post de ejemplo donde puedes escribir sobre cualquier tema que te interese
 author: Rafael Denis Jara
+categoria: texto
 image:
   url: /texto/Animaestribillosrafa/portadaanima.jpg
   alt: Imagen del evento
