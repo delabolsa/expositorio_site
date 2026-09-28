@@ -11,7 +11,7 @@ const postsCollection = defineCollection({
     author: z.string(),
     categoria: z.string().optional(),
     image: z.object({
-    url: z.string().url(),
+    url: z.string(),
     alt: z.string(),
   })
   .optional(),
@@ -30,7 +30,7 @@ const interviewsCollection = defineCollection({
     interviewee: z.string(),
     videoUrl: z.string().url(),
     image: z.object({
-      url: z.string().url(),
+      url: z.string(),
       alt: z.string(),
     })
       .optional(),
