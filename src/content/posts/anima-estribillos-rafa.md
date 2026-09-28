@@ -4,7 +4,7 @@ pubDate: 2026-09-28
 description: Este es un post de ejemplo donde puedes escribir sobre cualquier tema que te interese
 author: Rafael Denis Jara
 image:
-  url: public/texto/Animaestribillosrafa/portadaanima.jpg
+  url: /texto/Animaestribillosrafa/portadaanima.jpg
   alt: Imagen del evento
 tags:
   - Tim MiRaquel
