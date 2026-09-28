@@ -11,8 +11,10 @@ const postsCollection = defineCollection({
     author: z.string(),
     categoria: z.string().optional(),
     image: z.object({
-      url: z.string().url(),
-      alt: z.string(),
+    url: z.string().url(),
+    alt: z.string(),
+  })
+  .optional(),
     }),
     tags: z.array(z.string()),
   }),
@@ -30,7 +32,8 @@ const interviewsCollection = defineCollection({
     image: z.object({
       url: z.string().url(),
       alt: z.string(),
-    }).optional(),
+    })
+      .optional(),
     tags: z.array(z.string()).optional(),
   }),
 });
