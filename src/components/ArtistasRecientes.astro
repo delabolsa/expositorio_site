@@ -1,29 +1,42 @@
 ---
-export interface Props {
-  artistas: any[];
-}
-const { artistas } = Astro.props;
+const textos = [
+  {
+    titulo: "Título ejemplo",
+    resumen: "Subtítulo ejemplo de texto que iría en esta tarjeta, sirviendo como referencia visual.",
+    fecha: "5 Abril 2026",
+    slug: "ejemplo-1",
+  },
+  {
+    titulo: "Título ejemplo",
+    resumen: "Subtítulo ejemplo de texto que iría en esta tarjeta, sirviendo como referencia visual.",
+    fecha: "5 Abril 2026",
+    slug: "ejemplo-2",
+  },
+  {
+    titulo: "Título ejemplo",
+    resumen: "Subtítulo ejemplo de texto que iría en esta tarjeta, sirviendo como referencia visual.",
+    fecha: "5 Abril 2026",
+    slug: "ejemplo-3",
+  },
+];
 ---
 <section class="max-w-7xl mx-auto px-4 py-16">
-  <div class="flex justify-between items-center mb-8">
-    <h2 class="text-3xl font-bold text-base-900">Artistas recientes</h2>
-    <a href="/artistas" class="text-sm text-base-600 hover:underline">Ver todos →</a>
+  <h2 class="text-3xl font-bold mb-6 text-base-900">Textos</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+    {textos.map((texto) => (
+      <article class="border border-base-200 rounded-xl p-5 flex flex-col">
+        <h3 class="text-lg font-semibold text-base-900">{texto.titulo}</h3>
+        <p class="text-sm text-base-500 mt-2 line-clamp-3 flex-grow">{texto.resumen}</p>
+        <div class="flex justify-between items-center mt-4 text-sm">
+          <span class="text-base-400">{texto.fecha}</span>
+          <a href={`/posts/${texto.slug}`} class="text-base-900 hover:underline">Leer más →</a>
+        </div>
+      </article>
+    ))}
   </div>
-  {artistas.length === 0 ? (
-    <p class="text-center text-base-500">No hay artistas cargados aún.</p>
-  ) : (
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {artistas.map(artista => (
-        <a href={`/artistas/${artista.slug}`} class="group block bg-base-100 rounded-xl p-6 text-center hover:shadow-md transition border border-base-200">
-          {artista.data.foto ? (
-            <img src={artista.data.foto} alt={artista.data.nombre} class="w-32 h-32 mx-auto rounded-full object-cover mb-4" />
-          ) : (
-            <div class="w-32 h-32 mx-auto bg-base-200 rounded-full mb-4"></div>
-          )}
-          <h3 class="font-semibold text-xl text-base-900">{artista.data.nombre}</h3>
-          <p class="text-sm text-base-500 mt-1 group-hover:text-base-700">Ver perfil →</p>
-        </a>
-      ))}
-    </div>
-  )}
+
+  <div class="text-center mt-8">
+    <a href="/archivo" class="text-sm text-base-600 hover:underline">Ver todos →</a>
+  </div>
 </section>
