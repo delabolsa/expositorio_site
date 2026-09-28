@@ -8,12 +8,20 @@ import TextosRecientes from "@/components/TextosRecientes.astro";
 import ArchivoColectivo from "@/components/ArchivoColectivo.astro";
 import Sumate from "@/components/Sumate.astro";
 import artistasData from "../data/artistas.json";
+import { getCollection } from "astro:content";
 
 // Ordenar por fechaAgregado (más reciente primero)
 const artistasConFecha = artistasData.filter(a => a.data.fechaAgregado);
 const artistasRecientes = artistasConFecha
   .sort((a,b) => new Date(b.data.fechaAgregado) - new Date(a.data.fechaAgregado))
   .slice(0,4);
+
+// Textos: posts de categoría "texto", los 3 más recientes
+const allPosts = await getCollection("posts");
+const textosRecientes = allPosts
+  .filter(post => post.data.categoria === "texto")
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+  .slice(0, 3);
 ---
 
 <BaseLayout title="Expositorio Voyeur - Archivo curatorial independiente">
@@ -46,7 +54,7 @@ const artistasRecientes = artistasConFecha
     )}
 
     <CarruselExposiciones />
-    <TextosRecientes />
+    <TextosRecientes textos={textosRecientes} />
     <ArchivoColectivo />
     <Sumate />
   </div>
