@@ -18,8 +18,14 @@ const artistasRecientes = artistasConFecha
 
 // Textos: posts de categoría "texto", los 3 más recientes
 const allPosts = await getCollection("posts");
+
 const textosRecientes = allPosts
-  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+  .filter((post) => post.data.categoria === "texto")
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() -
+      new Date(a.data.pubDate).getTime()
+  )
   .slice(0, 3);
 ---
 
