@@ -3,25 +3,33 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const postsCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/posts" }),
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/posts",
+  }),
   schema: z.object({
     title: z.string(),
     pubDate: z.coerce.date(),
     description: z.string(),
     author: z.string(),
     categoria: z.string().optional(),
-    image: z.object({
-    url: z.string(),
-    alt: z.string(),
-  })
-  .optional(),
-    }),
+
+    image: z
+      .object({
+        url: z.string(),
+        alt: z.string(),
+      })
+      .optional(),
+
     tags: z.array(z.string()),
   }),
 });
 
 const interviewsCollection = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/interviews" }),
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/interviews",
+  }),
   schema: z.object({
     title: z.string(),
     pubDate: z.coerce.date(),
@@ -29,11 +37,14 @@ const interviewsCollection = defineCollection({
     author: z.string(),
     interviewee: z.string(),
     videoUrl: z.string().url(),
-    image: z.object({
-      url: z.string(),
-      alt: z.string(),
-    })
+
+    image: z
+      .object({
+        url: z.string(),
+        alt: z.string(),
+      })
       .optional(),
+
     tags: z.array(z.string()).optional(),
   }),
 });
