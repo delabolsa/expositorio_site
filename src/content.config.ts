@@ -9,6 +9,7 @@ const postsCollection = defineCollection({
     pubDate: z.coerce.date(),
     description: z.string(),
     author: z.string(),
+    categoria: z.string().optional(),
     image: z.object({
       url: z.string().url(),
       alt: z.string(),
@@ -27,7 +28,7 @@ const interviewsCollection = defineCollection({
     interviewee: z.string(),
     videoUrl: z.string().url(),
     image: z.object({
-      url: z.string().optional(),
+      url: z.string().url(),
       alt: z.string(),
     }).optional(),
     tags: z.array(z.string()).optional(),
