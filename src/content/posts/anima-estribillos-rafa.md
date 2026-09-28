@@ -1,7 +1,7 @@
 ---
 title: La destrucción y reconstrucción de uno mismo. Impresiones de la exposición ÁNIMAestribillos 2025 de Tim MiRaquel
 pubDate: 2026-09-28
-description: Este es un post de ejemplo donde puedes escribir sobre cualquier tema que te interese
+description: Texto sobre la Exposición ÁNIMAestribillos.
 author: Rafael Denis Jara
 categoria: texto
 image:
