@@ -10,8 +10,7 @@ const exposiciones = [
 ];
 ---
 
-<!-- Contenedor más amplio para dar espacio horizontal a la imagen panorámica -->
-<section class="max-w-screen-2xl mx-auto px-4 py-12">
+<section class="max-w-7xl mx-auto px-4 py-12">
   <div class="flex justify-between items-center mb-6">
     <h2 class="text-3xl font-bold text-base-900">Exposiciones</h2>
     <a href="/exposiciones" class="text-sm text-base-600 hover:underline">Ver más info →</a>
@@ -48,11 +47,11 @@ const exposiciones = [
                 <img
                   src={expo.imagen}
                   alt={expo.titulo}
-                  class="w-full h-auto block rounded-xl"
+                  class="w-full h-auto aspect-video object-contain rounded-xl block"
                   loading="lazy"
                 />
               ) : (
-                <div class="w-full aspect-[2/1] bg-base-200 rounded-xl"></div>
+                <div class="w-full aspect-video bg-base-200 rounded-xl"></div>
               )}
             </a>
           </div>
